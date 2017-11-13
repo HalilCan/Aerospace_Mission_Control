@@ -4,6 +4,8 @@
 let http = require('http');
 let fs = require('fs');
 let request = require('request');
+let bl = require('bl');
+
 
 let send = function(imei, username, password, data) {
   request.post(
@@ -15,6 +17,7 @@ let send = function(imei, username, password, data) {
       data: data,
     } },
     function (error, response, body) {
+      //response + body here
       if (!error && response.statusCode === 200) {
         console.log(body);
       }
