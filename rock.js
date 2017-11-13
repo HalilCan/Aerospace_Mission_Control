@@ -1,13 +1,13 @@
 /**
  * Created by hcm on 03.11.2017.
  */
-let http = require('http');
-let fs = require('fs');
-let request = require('request');
-let bl = require('bl');
+var http = require('http');
+var fs = require('fs');
+var request = require('request');
+var bl = require('bl');
 
 
-let send = function(imei, username, password, data) {
+var send = function(imei, username, password, data) {
   request.post(
     'https://core.rock7.com/rockblock',
     { json: {
