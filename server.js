@@ -75,11 +75,22 @@ app.post('/incoming', function(req, res){
   return res;
 });
 
+app.post('/send-message', function(req, res) {
+  //TODO: Check if this is parsing correctly, record sent messages in db
+  var msgObject = req.body;
+  rock.request(msgObject.imei, msgObject.username, msgObject.password, msgObject.message);
+  res.writeHead(200, {'content-type': 'application/json'});
+  res.end();
+});
+
+//This is how we specify the path to the template files in the folder 'templates':
+app.set('views', path.join(__dirname, 'public'));
+//This is how we set the template engine
+app.set('view engine', 'pug');
+
+//This is how we serve the template page with the response
+app.get('/home', function (req, res) {
+  res.render('index', {date: (new Date()).toDateString()});
+});
 
 app.listen(listeningPort);
-
-var server = http.createServer(function (req, res) {
-  if (req.method === 'POST') {
-  
-  }
-}).listen(listeningPort);
