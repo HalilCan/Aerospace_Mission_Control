@@ -1,5 +1,9 @@
 //
    Created by hcm on 19.11.2017.
+head
+    title Aerospace Mission Control
+    script(src='/javascripts/index.js')
+
 
 h1 Hello Hal!
 p Today is #{date}.
@@ -17,4 +21,4 @@ form(method ='POST' action='/send-message')
     div.form-group
         label(for='message') Message:
         input#msg.form-control(type='text', placeholder='Message here' name='msg')
-    button.btn.btn-primary(type='submit') Submit
+    button.btn.btn-primary(type='button') Submit
