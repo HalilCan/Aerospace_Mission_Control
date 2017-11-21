@@ -2,7 +2,7 @@
  * Created by hcm on 20.11.2017.
  */
 
-function hexify(val) {
+function encode(val) {
   let hex, i;
   
   let result = "";
@@ -14,7 +14,7 @@ function hexify(val) {
   return result;
 }
 
-function dehexify(val) {
+function decode(val) {
   let j;
   let hexes = val.match(/.{1,4}/g) || [];
   let back = "";
