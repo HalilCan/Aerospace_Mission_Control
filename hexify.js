@@ -26,6 +26,6 @@ function decode(val) {
 }
 
 module.exports = {
-  hexify,
-  dehexify
+  encode,
+  decode
 }
