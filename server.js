@@ -79,6 +79,7 @@ app.post('/send-message', function(req, res) {
   //TODO: Check if this is parsing correctly, record sent messages in db
   var msgObject = req.body;
   rock.request(msgObject.imei, msgObject.username, msgObject.password, msgObject.message);
+  console.log(msgObject.imei + " " + msgObject.username + " " + msgObject.password + " " + msgObject.message);
   res.writeHead(200, {'content-type': 'application/json'});
   res.end();
 });
@@ -92,5 +93,10 @@ app.set('view engine', 'pug');
 app.get('/home', function (req, res) {
   res.render('index', {date: (new Date()).toDateString()});
 });
+
+app.get('/', function (req, res) {
+  res.render('index', {date: (new Date()).toDateString()});
+});
+
 
 app.listen(listeningPort);
