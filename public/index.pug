@@ -11,14 +11,14 @@ p Today is #{date}.
 form(method ='POST' action='/send-message')
     div.form-group
         label(for='username') Username:
-        input#username.form-control(type='text', placeholder='Username here' name='username')
+        input#username-box.form-control(type='text', placeholder='Username here' name='username')
     div.form-group
         label(for='password') Password:
-        input#password.form-control(type='text', placeholder='Password here' name='password')
+        input#password-box.form-control(type='text', placeholder='Password here' name='password')
     div.form-group
         label(for='imei') IMEI:
-        input#imei.form-control(type='text', placeholder='IMEI here' name='imei')
+        input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei')
     div.form-group
         label(for='message') Message:
-        input#msg.form-control(type='text', placeholder='Message here' name='msg')
+        input#msg-box.form-control(type='text', placeholder='Message here' name='msg')
     button.btn.btn-primary(type='button') Submit
