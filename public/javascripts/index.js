@@ -28,18 +28,23 @@ function sendToServer() {
   };
   //Setup the ajax request
   var url = '/client_message';
+  var data = {};
+  data.title = 'title';
+  data.message = messageData;
   
   $.ajax({
     url: url,
     type: 'POST',
+    crossDomain: true,
     contentType: 'application/json',
     data: JSON.stringify(messageData),
     dataType: 'json',
     success: function(data){
-      console.log('client to server POST success: ' + data);
+      console.log('client to server POST success!');
     },
     error: function(xhr, ajaxOptions, thrownError) {
       if (xhr.status === 200) {
+        alert(xhr.status);
         alert(ajaxOptions);
       } else {
         alert(xhr.status);

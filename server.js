@@ -21,6 +21,7 @@ app.use(express.static(__dirname + '/public'));
 //To parse x-www-form-urlencoded request bodies, Express.js can use urlencoded()
 //middleware from the body-parser module.
 var bodyparser = require('body-parser');
+var jsonParser = bodyParser.json();
 app.use(bodyparser.urlencoded({extended: false}));
 
 var index = require('./routes/index');
@@ -66,16 +67,18 @@ var logData = function(url_obj) {
 //TODO: return the global requests list/chain/linkedlist object?
 app.post('/client_message', function(req,res) {
   // Use URL to parse the request and get a URL object from it.
-  var msgObject = req.body;
+  console.log(req);
+  //console.log(url.parse(req, true));
   
-  var imei = msgObject.imei;
+  /*var imei = msgObject.imei;
+  /*var imei = msgObject.imei;
   var username = msgObject.username;
   var password = msgObject.password;
   var message = msgObject.data;
-  
   console.log('got data: ' + message);
-  rock.send(imei, username, password, message);
+   */
   
+  //rock.send(imei, username, password, message);
   res.writeHead(200, {'content-type': 'application/json'});
   res.end('success!');
 });
@@ -96,7 +99,7 @@ app.post('/incoming', function(req, res){
   return res;
 });
 
-app.post('/send-message', function(req, res) {
+app.post('/send-message', jsonParser, function(req, res) {
   //TODO: Check if this is parsing correctly, record sent messages in db
   var msgObject = req.body;
   rock.send(msgObject.imei, msgObject.username, msgObject.password, msgObject.msg);
