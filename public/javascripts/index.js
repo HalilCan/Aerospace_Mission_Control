@@ -6,15 +6,14 @@
 // Otherwise, it'll block ALL execution waiting for server response.
 var async = true;
 
-var imeiBox = document.getElementById("imei-box");
-var usernameBox = document.getElementById("username-box");
-var passwordBox = document.getElementById("password-box");
-
-var messageButton = document.getElementById("send-message-button");
-var messageBox = document.getElementById("msg-box");
-
-
 function sendToServer() {
+  var imeiBox = document.getElementById("imei-box");
+  var usernameBox = document.getElementById("username-box");
+  var passwordBox = document.getElementById("password-box");
+  
+  var messageButton = document.getElementById("send-message-button");
+  var messageBox = document.getElementById("msg-box");
+  
   //Record transceiver configuration data
   
   var IMEI = imeiBox.value;
@@ -28,13 +27,13 @@ function sendToServer() {
     data: message
   };
   //Setup the ajax request
-  var url = '/client_messsage';
+  var url = '/client_message';
   
   $.ajax({
     url: url,
     type: 'POST',
     contentType: 'application/json',
-    data:JSON.stringify(messageData),
+    data: JSON.stringify(messageData),
     dataType: 'json',
     success: function(data){
       console.log('client to server POST success: ' + data);

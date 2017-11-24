@@ -11,6 +11,7 @@ var rock = require('./rock');
 var request = require('request');
 var url = require('url');
 var fs = require('fs');
+var hexify = require('./hexify');
 
 var express = require('express');
 var app = express();
@@ -60,6 +61,24 @@ var logData = function(url_obj) {
   //TODO: log data to the server database
   //console.log(imei + '\n' + data);
 };
+
+//This handles the post request made by the client
+//TODO: return the global requests list/chain/linkedlist object?
+app.post('/client_message', function(req,res) {
+  // Use URL to parse the request and get a URL object from it.
+  var msgObject = req.body;
+  
+  var imei = msgObject.imei;
+  var username = msgObject.username;
+  var password = msgObject.password;
+  var message = msgObject.data;
+  
+  console.log('got data: ' + message);
+  rock.send(imei, username, password, message);
+  
+  res.writeHead(200, {'content-type': 'application/json'});
+  res.end('success!');
+});
 
 //TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function(req, res){
