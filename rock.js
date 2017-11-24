@@ -5,7 +5,7 @@ var http = require('http');
 var fs = require('fs');
 var request = require('request');
 var bl = require('bl');
-var hexify = require('hexify');
+var hexify = require('./hexify');
 
 
 var send = function(imei, username, password, data) {

@@ -21,7 +21,6 @@ function sendToServer() {
   var USERNAME = usernameBox.value;
   var PASSWORD = passwordBox.value;
   var message = messageBox.value;
-  var $this = $(this);
   var messageData = {
     imei: IMEI,
     username: USERNAME,
