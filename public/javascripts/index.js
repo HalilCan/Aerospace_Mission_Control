@@ -22,7 +22,7 @@ function sendToServer() {
   var PASSWORD = passwordBox.value;
   var message = messageBox.value;
   var $this = $(this);
-  var messageObject = {
+  var messageData = {
     imei: IMEI,
     username: USERNAME,
     password: PASSWORD,
@@ -34,7 +34,20 @@ function sendToServer() {
   $.ajax({
     url: url,
     type: 'POST',
-    contentType: 'application/JSON',
+    contentType: 'application/json',
+    data:JSON.stringify(messageData),
+    dataType: 'json',
+    success: function(data){
+      console.log('client to server POST success: ' + data);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      if (xhr.status === 200) {
+        alert(ajaxOptions);
+      } else {
+        alert(xhr.status);
+        alert(thrownError);
+      }
+    }
   })
 }
 
