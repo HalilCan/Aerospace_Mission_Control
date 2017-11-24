@@ -15,6 +15,8 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 //To parse x-www-form-urlencoded request bodies, Express.js can use urlencoded()
 //middleware from the body-parser module.
 var bodyparser = require('body-parser');
@@ -56,7 +58,7 @@ var logData = function(url_obj) {
   var data = url_obj.query.data;
   
   //TODO: log data to the server database
-  console.log(imei + '\n' + data);
+  //console.log(imei + '\n' + data);
 };
 
 //TODO: setup the rocblock server router to the /incoming url
@@ -78,8 +80,8 @@ app.post('/incoming', function(req, res){
 app.post('/send-message', function(req, res) {
   //TODO: Check if this is parsing correctly, record sent messages in db
   var msgObject = req.body;
-  rock.request(msgObject.imei, msgObject.username, msgObject.password, msgObject.message);
-  console.log(msgObject.imei + " " + msgObject.username + " " + msgObject.password + " " + msgObject.message);
+  rock.send(msgObject.imei, msgObject.username, msgObject.password, msgObject.msg);
+  //console.log(msgObject.imei + " " + msgObject.username + " " + msgObject.password + " " + msgObject.msg);
   res.writeHead(200, {'content-type': 'application/json'});
   res.end();
 });

@@ -5,9 +5,12 @@ var http = require('http');
 var fs = require('fs');
 var request = require('request');
 var bl = require('bl');
+var hexify = require('hexify');
 
 
 var send = function(imei, username, password, data) {
+  var hexifiedData = hexify.encode(data);
+  console.log('sending hexified: ' + data);
   request.post(
     'https://core.rock7.com/rockblock',
     { json: {
@@ -25,4 +28,4 @@ var send = function(imei, username, password, data) {
   );
 }
 
-module.exports.request = send;
+module.exports.send = send;

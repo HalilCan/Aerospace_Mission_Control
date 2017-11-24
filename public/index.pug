@@ -2,23 +2,23 @@
    Created by hcm on 19.11.2017.
 head
     title Aerospace Mission Control
-    script(src='/javascripts/index.js')
+    script(src='javascripts/index.js' type='text/javascript')
 
+body
+    h1 Hello Hal!
+    p Today is #{date}.
 
-h1 Hello Hal!
-p Today is #{date}.
-
-form#message-form(method ='POST' action='/send-message')
-    div.form-group
-        label(for='username') Username:
-        input#username-box.form-control(type='text', placeholder='Username here' name='username')
-    div.form-group
-        label(for='password') Password:
-        input#password-box.form-control(type='text', placeholder='Password here' name='password')
-    div.form-group
-        label(for='imei') IMEI:
-        input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei')
-    div.form-group
-        label(for='message') Message:
-        input#msg-box.form-control(type='text', placeholder='Message here' name='msg')
-    button#send-message-button.btn.btn-primary(type='submit') Submit
+    form#message-form(method ='POST' action='/send-message')
+        div.form-group
+            label(for='username') Username:
+            input#username-box.form-control(type='text', placeholder='Username here' name='username')
+        div.form-group
+            label(for='password') Password:
+            input#password-box.form-control(type='text', placeholder='Password here' name='password')
+        div.form-group
+            label(for='imei') IMEI:
+            input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei')
+        div.form-group
+            label(for='message') Message:
+            input#msg-box.form-control(type='text', placeholder='Message here' name='msg')
+        button#send-message-button.btn.btn-primary(type='submit' onclick='sendToServer()') Submit
