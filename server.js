@@ -24,6 +24,7 @@ var bodyparser = require('body-parser');
 var jsonParser = bodyParser.json();
 app.use(bodyparser.urlencoded({extended: false}));
 
+//Port config for Heroku, 5000 for Webstorm
 app.set( 'port', ( process.env.PORT || 8000 ));
 
 var index = require('./routes/index');
