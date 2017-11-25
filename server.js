@@ -96,7 +96,7 @@ app.post('/incoming', function(req, res){
   console.log(formData);
   
   // We will log the data
-  logData(urlObject);
+  logData(formData);
   
   // RockBlock documentation requires us to respond with http status 200
   res.writeHead(200, {'Content-Type': 'application/json'});
