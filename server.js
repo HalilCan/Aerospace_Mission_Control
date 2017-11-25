@@ -87,6 +87,9 @@ app.post('/client_message', function(req, res) {
 //TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function(req, res){
   console.log('incoming detected!');
+  console.log(req.body);
+  console.log(req.query);
+  console.log(req.query.body);
   res.sendStatus(200);
   //Collect all the incoming data into one object
   var requestBody = '';
