@@ -53,15 +53,15 @@ var send = function(imei, username, password, data) {
   );
 };
 
-var logData = function(url_obj) {
+var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   // Collect all the important information from the message;
-  var imei = url_obj.query.imei;
-  var momsn = url_obj.query.momsn;
-  var transmitTime = url_obj.query.transmit_time;
-  var iridiumLatitude = url_obj.query.iridium_latitude;
-  var iridiumLongitude = url_obj.query.iridium_longitude;
-  var iridiumCep = url_obj.query.iridium_cep; //estimate of the accuracy of lat-long in km
-  var data = url_obj.query.data;
+  var imei = imei;
+  var momsn = momsn;
+  var transmitTime = irLat;
+  var iridiumLatitude = irLat;
+  var iridiumLongitude = irLon;
+  var iridiumCep = irCep; //estimate of the accuracy of lat-long in km
+  var data = data;
   
   //TODO: log data to the server database
   //console.log(imei + '\n' + data);
@@ -84,24 +84,22 @@ app.post('/client_message', function(req, res) {
   res.end();
 });
 
-//TODO: setup the rocblock server router to the /incoming url
+// TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function(req, res){
   console.log('incoming detected!');
-  
-  //TODO: Do I really need this?
-  res.sendStatus(200);
 
-  //The data sent from RB is in req.body
+  // The data sent from RB is in req.body
   var formData = req.body;
   console.log(formData);
   console.log(formData.imei);
-  //console.log(JSON.parse(formData));
   
   // We will log the data
-  //logData(JSON.parse(formData));
+  logData(JSON.parse(formData));
   
   // RockBlock documentation requires us to respond with http status 200
-  res.writeHead(200, {'Content-Type': 'application/json'});
+  // res.writeHead(200, {'Content-Type': 'application/json'});
+  // TODO: Do I really need this?
+  res.sendStatus(200);
   res.end();
 });
 
