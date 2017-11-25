@@ -8,7 +8,7 @@ function encode(val) {
   var result = "";
   for (i=0; i<val.length; i++) {
     hex = val.charCodeAt(i).toString(16);
-    result += ("000"+hex).slice(-4);
+    result += (""+hex).slice(-4);
   }
   
   return result;
@@ -16,7 +16,7 @@ function encode(val) {
 
 function decode(val) {
   var j;
-  var hexes = val.match(/.{1,4}/g) || [];
+  var hexes = val.match(/.{1,2}/g) || [];
   var back = "";
   for(j = 0; j<hexes.length; j++) {
     back += String.fromCharCode(parseInt(hexes[j], 16));
