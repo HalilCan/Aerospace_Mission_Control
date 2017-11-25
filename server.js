@@ -65,6 +65,7 @@ var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   
   //TODO: log data to the server database
   console.log('\n' + imei + '\n' + data);
+  console.log('data: ' + hexify.decode(data));
 };
 
 //This handles the post request made by the client
