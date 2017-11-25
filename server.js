@@ -94,9 +94,10 @@ app.post('/incoming', function(req, res){
   //The data sent from RB is in req.body
   var formData = req.body;
   console.log(formData);
+  console.log(JSON.parse(formData));
   
   // We will log the data
-  logData(formData);
+  logData(JSON.parse(formData));
   
   // RockBlock documentation requires us to respond with http status 200
   res.writeHead(200, {'Content-Type': 'application/json'});
