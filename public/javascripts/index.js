@@ -35,10 +35,7 @@ function sendToServer() {
   $.ajax({
     url: url,
     type: 'POST',
-    crossDomain: true,
-    contentType: 'application/json',
-    data: JSON.stringify(messageData),
-    dataType: 'json',
+    data: (messageData),
     success: function(data){
       console.log('client to server POST success!');
     },

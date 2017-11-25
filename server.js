@@ -67,20 +67,17 @@ var logData = function(url_obj) {
 //TODO: return the global requests list/chain/linkedlist object?
 app.post('/client_message', function(req,res) {
   // Use URL to parse the request and get a URL object from it.
-  console.log(req);
-  //console.log(url.parse(req, true));
+  var msgObject = req.body;
   
-  /*var imei = msgObject.imei;
-  /*var imei = msgObject.imei;
+  var imei = msgObject.imei;
   var username = msgObject.username;
   var password = msgObject.password;
   var message = msgObject.data;
   console.log('got data: ' + message);
-   */
   
-  //rock.send(imei, username, password, message);
+  rock.send(imei, username, password, message);
   res.writeHead(200, {'content-type': 'application/json'});
-  res.end('success!');
+  res.end();
 });
 
 //TODO: setup the rocblock server router to the /incoming url
