@@ -87,39 +87,20 @@ app.post('/client_message', function(req, res) {
 //TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function(req, res){
   console.log('incoming detected!');
-  console.log(req.body);
-  console.log(req.query);
-  console.log(req.query.body);
+  
+  //TODO: Do I really need this?
   res.sendStatus(200);
-  //Collect all the incoming data into one object
-  var requestBody = '';
-  req.on('data', function(chunk) {
-    console.log('data collecting! - ' + chunk.toString());
-    requestBody += chunk;
-    console.log(requestBody);
-  }).on('end', () => {
-    requestBody = Buffer.concat(requestBody).toString();
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    return res;
-  });
-  /*
-  req.on('end', function(){
-    console.log(requestBody);
-    var formData = qs.parse(requestBody);
-    console.log(formData);
-    /*
-    // Use URL to parse the request and get a URL object from it.
-    var urlObject = url.parse(req.url, true);
+
+  //The data sent from RB is in req.body
+  var formData = req.body;
+  console.log(formData);
   
-    // Get the path from the url
-    var urlPath = urlObject.pathname;
+  // We will log the data
+  logData(urlObject);
   
-    // Now we will log the data
-    logData(urlObject);
-    */
-    // RockBlock documentation requires us to respond with http status 200
-  //});
-  
+  // RockBlock documentation requires us to respond with http status 200
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end();
 });
 
 app.post('/send_message', jsonParser, function(req, res) {
