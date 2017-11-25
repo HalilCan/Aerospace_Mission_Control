@@ -96,7 +96,7 @@ app.post('/incoming', function(req, res){
   return res;
 });
 
-app.post('/send-message', jsonParser, function(req, res) {
+app.post('/send_message', jsonParser, function(req, res) {
   //TODO: Check if this is parsing correctly, record sent messages in db
   var msgObject = req.body;
   rock.send(msgObject.imei, msgObject.username, msgObject.password, msgObject.msg);
