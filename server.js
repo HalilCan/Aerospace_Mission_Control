@@ -24,6 +24,8 @@ var bodyparser = require('body-parser');
 var jsonParser = bodyParser.json();
 app.use(bodyparser.urlencoded({extended: false}));
 
+app.set( 'port', ( process.env.PORT || 8000 ));
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -120,4 +122,4 @@ app.get('/', function (req, res) {
 });
 
 
-app.listen(listeningPort);
+app.listen(app.get('port'));
