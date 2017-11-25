@@ -12,6 +12,7 @@ var request = require('request');
 var url = require('url');
 var fs = require('fs');
 var hexify = require('./hexify');
+var qs = require('querystring');
 
 var express = require('express');
 var app = express();
@@ -85,18 +86,30 @@ app.post('/client_message', function(req,res) {
 
 //TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function(req, res){
-  // Use URL to parse the request and get a URL object from it.
-  var urlObject = url.parse(req.url, true);
+  //Collect all the incoming data into one object
+  var requestBody = '';
+  req.on('data', function(data) {
+    requestBody += data;
+  });
   
-  // Get the path from the url
-  var urlPath = urlObject.pathname;
+  req.on('end', function(){
+    console.log(requestBody);
+    var formData = qs.parse(requestBody);
+    console.log(formData);
+    /*
+    // Use URL to parse the request and get a URL object from it.
+    var urlObject = url.parse(req.url, true);
   
-  // Now we will log the data
-  logData(urlObject);
+    // Get the path from the url
+    var urlPath = urlObject.pathname;
   
-  // RockBlock documentation requires us to respond with http status 200
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  return res;
+    // Now we will log the data
+    logData(urlObject);
+    */
+    // RockBlock documentation requires us to respond with http status 200
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    return res;
+  });
 });
 
 app.post('/send_message', jsonParser, function(req, res) {
