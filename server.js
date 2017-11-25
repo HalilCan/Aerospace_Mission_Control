@@ -90,6 +90,7 @@ app.post('/incoming', function(req, res){
   //Collect all the incoming data into one object
   var requestBody = '';
   req.on('data', function(data) {
+    console.log('data collecting! - ' + data);
     requestBody += data;
   });
   
