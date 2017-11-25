@@ -69,7 +69,7 @@ var logData = function(url_obj) {
 
 //This handles the post request made by the client
 //TODO: return the global requests list/chain/linkedlist object?
-app.post('/client_message', function(req,res) {
+app.post('/client_message', function(req, res) {
   // Use URL to parse the request and get a URL object from it.
   var msgObject = req.body;
   
@@ -87,10 +87,11 @@ app.post('/client_message', function(req,res) {
 //TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function(req, res){
   console.log('incoming detected!');
+  res.sendStatus(200);
   //Collect all the incoming data into one object
   var requestBody = '';
   req.on('data', function(chunk) {
-    console.log('data collecting! - ' + chunk);
+    console.log('data collecting! - ' + chunk.toString());
     requestBody += chunk;
     console.log(requestBody);
   }).on('end', () => {
