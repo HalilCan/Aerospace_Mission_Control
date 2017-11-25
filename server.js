@@ -89,12 +89,16 @@ app.post('/incoming', function(req, res){
   console.log('incoming detected!');
   //Collect all the incoming data into one object
   var requestBody = '';
-  req.on('data', function(data) {
-    console.log('data collecting! - ' + data);
-    requestBody += data;
+  req.on('data', function(chunk) {
+    console.log('data collecting! - ' + chunk);
+    requestBody += chunk;
     console.log(requestBody);
+  }).on('end', () => {
+    requestBody = Buffer.concat(requestBody).toString();
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    return res;
   });
-  
+  /*
   req.on('end', function(){
     console.log(requestBody);
     var formData = qs.parse(requestBody);
@@ -110,9 +114,8 @@ app.post('/incoming', function(req, res){
     logData(urlObject);
     */
     // RockBlock documentation requires us to respond with http status 200
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    return res;
-  });
+  //});
+  
 });
 
 app.post('/send_message', jsonParser, function(req, res) {
