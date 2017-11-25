@@ -88,6 +88,9 @@ app.post('/client_message', function(req,res) {
 app.post('/incoming', function(req, res){
   console.log('incoming detected!');
   console.log('REQ: ' + req);
+  console.log(req.imei);
+  console.log(req.query);
+  console.log(req.query.imei);
   //Collect all the incoming data into one object
   var requestBody = '';
   req.on('data', function(data) {
