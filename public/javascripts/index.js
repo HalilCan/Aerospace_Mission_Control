@@ -54,7 +54,8 @@ function sendToServer() {
         alert(thrownError);
       }
     }
-  })
+  });
+  updateLastCoordinates();
 }
 
 
