@@ -25,6 +25,10 @@ socket.on('new_coords', function(latitude, longitude, gpsAccuracy){
   longitudeBox.innerHTML = recentLongitude;
   latitudeBox.innerHTML = recentLatitude;
   accuracyBox.innerHTML = recentAccuracy;
+  longitudeBox.value = recentLongitude;
+  latitudeBox.value = recentLatitude;
+  accuracyBox.value = recentAccuracy;
+  
 });
 
 
