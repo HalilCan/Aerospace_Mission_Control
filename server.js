@@ -55,7 +55,7 @@ var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   longitude = iridiumLongitude;
   gpsAccuracy = iridiumCep;
 
-  io.sockets.emit('new_coords', {latitude, longitude, gpsAccuracy});
+  io.sockets.emit('new_coords', {'latitude':latitude, 'longitude':longitude, 'acc':gpsAccuracy});
 
   //TODO: log data to the server database
   console.log('\n' + imei + '\n' + data);
