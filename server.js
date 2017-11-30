@@ -20,7 +20,7 @@ var app = express();
 app.set( 'port', ( process.env.PORT || 8000 ));
 
 var server = app.listen(app.get('port') || 8000);
-var io = require('socket.io').(server);
+var io = require('socket.io')(server);
 
 app.use(express.static(__dirname + '/public'));
 
