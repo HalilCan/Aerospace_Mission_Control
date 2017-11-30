@@ -6,6 +6,12 @@
 // Otherwise, it'll block ALL execution waiting for server response.
 var async = true;
 
+var socket = io();
+
+function updateLastCoordinates() {
+
+}
+
 function sendToServer() {
   var imeiBox = document.getElementById("imei-box");
   var usernameBox = document.getElementById("username-box");
@@ -13,9 +19,6 @@ function sendToServer() {
   
   var messageButton = document.getElementById("send-message-button");
   var messageBox = document.getElementById("msg-box");
-  
-  var longitudeBox = document.getElementById("longitude-box");
-  var latitudeBox = document.getElementById("latitude-box");
   
   //Record transceiver configuration data
   

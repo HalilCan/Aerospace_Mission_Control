@@ -2,7 +2,6 @@
  * Created by hcm on 12.11.2017.
  */
 var path = require('path');
-var http = require('http');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -16,6 +15,9 @@ var qs = require('querystring');
 
 var express = require('express');
 var app = express();
+
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 app.use(express.static(__dirname + '/public'));
 
@@ -33,6 +35,18 @@ var users = require('./routes/users');
 
 // Main listening port for RockBlock Server communication
 var listeningPort = 8000;
+
+// Global latitude and longitude variables for last known location
+var latitude = 0.0;
+var longitude = 0.0;
+var gpsAccuracy = 0.0;
+
+//Socket.io for client communication
+io.on('connection', function(socket) {
+  socket.on('coordinates_updated', function(data) {
+    socket.emit('new_coords', function(latitude, longitude, gpsAccuracy));
+  });
+});
 
 // This is how we send messages to the RockBlock servers
 var send = function(imei, username, password, data) {
@@ -62,6 +76,10 @@ var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   var iridiumLongitude = irLon;
   var iridiumCep = irCep; //estimate of the accuracy of lat-long in km
   var data = data;
+  
+  latitude = iridiumLatitude;
+  longitude = iridiumLongitude;
+  gpsAccuracy = iridiumCep;
   
   //TODO: log data to the server database
   console.log('\n' + imei + '\n' + data);
