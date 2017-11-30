@@ -44,6 +44,7 @@ var gpsAccuracy = 0.0;
 //Socket.io for client communication
 io.on('connection', function(socket) {
   socket.on('coordinates_updated', function(data) {
+    console.log('coords updated at: ' + data);
     socket.emit('new_coords', {latitude, longitude, gpsAccuracy});
   });
 });
