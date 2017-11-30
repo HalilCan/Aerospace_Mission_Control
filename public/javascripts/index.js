@@ -17,7 +17,7 @@ var recentLongitude = 0.0;
 var recentAccuracy = 0.0;
 
 socket.on('new_coords', function(latitude, longitude, gpsAccuracy){
-  console.log('coord updated socket caught!');
+  console.log('coord update socket caught!');
   recentLatitude = latitude;
   recentLongitude = longitude;
   recentAccuracy = gpsAccuracy;
