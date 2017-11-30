@@ -8,14 +8,14 @@ var async = true;
 
 var socket = io();
 
+var recentLatitude = 0.0;
+var recentLongitude = 0.0;
+var recentAccuracy = 0.0;
+
 socket.on('new_coords', function(latitude, longitude, gpsAccuracy){
   var longitudeBox = document.getElementById("longitude-box");
   var latitudeBox = document.getElementById("latitude-box");
   var accuracyBox = document.getElementById("accuracy-box");
-  
-  var recentLatitude = 0.0;
-  var recentLongitude = 0.0;
-  var recentAccuracy = 0.0;
   
   console.log('coord update socket caught!');
   recentLatitude = latitude;
