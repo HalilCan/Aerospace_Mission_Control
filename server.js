@@ -43,11 +43,6 @@ var gpsAccuracy = 0.0;
 
 //Socket.io for client communication
 io.on('connection', function(socket) {
-  socket.on('coordinates_updated', function(data) {
-    console.log('coords updated at: ' + data);
-    socket.emit('new_coords', {latitude, longitude, gpsAccuracy});
-  });
-  
   // This is how we send messages to the RockBlock servers
   var send = function(imei, username, password, data) {
     request.post(
@@ -80,7 +75,9 @@ io.on('connection', function(socket) {
     latitude = iridiumLatitude;
     longitude = iridiumLongitude;
     gpsAccuracy = iridiumCep;
-    
+  
+    socket.emit('new_coords', {latitude, longitude, gpsAccuracy});
+  
     //TODO: log data to the server database
     console.log('\n' + imei + '\n' + data);
     console.log('data: ' + hexify.decode(data));
