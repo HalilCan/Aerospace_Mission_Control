@@ -8,9 +8,25 @@ var async = true;
 
 var socket = io();
 
-function updateLastCoordinates() {
+var longitudeBox = document.getElementById("longitude-box");
+var latitudeBox = document.getElementById("latitude-box");
+var accuracyBox = document.getElementById("accuracy-box");
 
-}
+var recentLatitude = 0.0;
+var recentLongitude = 0.0;
+var recentAccuracy = 0.0;
+
+socket.on('new_coords', function(latitude, longitude, gpsAccuracy){
+  recentLatitude = latitude;
+  recentLongitude = longitude;
+  recentAccuracy = gpsAccuracy;
+  
+  longitudeBox.innerHTML = recentLongitude;
+  latitudeBox.innerHTML = recentLatitude;
+  accuracyBox.innerHTML = recentAccuracy;
+  
+});
+
 
 function sendToServer() {
   var imeiBox = document.getElementById("imei-box");
@@ -55,7 +71,6 @@ function sendToServer() {
       }
     }
   });
-  updateLastCoordinates();
 }
 
 
