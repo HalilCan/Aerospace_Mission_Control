@@ -41,96 +41,92 @@ var latitude = 0.0;
 var longitude = 0.0;
 var gpsAccuracy = 0.0;
 
-//Socket.io for client communication
-io.on('connection', function(socket) {
-  // This is how we send messages to the RockBlock servers
-  var send = function(imei, username, password, data) {
-    request.post(
-      'https://core.rock7.com/rockblock',
-      { json: {
-        imei: imei,
-        username: username,
-        password: password,
-        data: data,
-      } },
-      function (error, response, body) {
-        //response + body here
-        if (!error && response.statusCode === 200) {
-          console.log(body);
-        }
-      }
-    );
-  };
+var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
+  // Collect all the important information from the message;
+  var imei = imei;
+  var momsn = momsn;
+  var transmitTime = irLat;
+  var iridiumLatitude = irLat;
+  var iridiumLongitude = irLon;
+  var iridiumCep = irCep; //estimate of the accuracy of lat-long in km
+  var data = data;
   
-  var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
-    // Collect all the important information from the message;
-    var imei = imei;
-    var momsn = momsn;
-    var transmitTime = irLat;
-    var iridiumLatitude = irLat;
-    var iridiumLongitude = irLon;
-    var iridiumCep = irCep; //estimate of the accuracy of lat-long in km
-    var data = data;
-    
-    latitude = iridiumLatitude;
-    longitude = iridiumLongitude;
-    gpsAccuracy = iridiumCep;
-  
-    socket.emit('new_coords', {latitude, longitude, gpsAccuracy});
-  
-    //TODO: log data to the server database
-    console.log('\n' + imei + '\n' + data);
-    console.log('data: ' + hexify.decode(data));
-  };
+  latitude = iridiumLatitude;
+  longitude = iridiumLongitude;
+  gpsAccuracy = iridiumCep;
+
+  io.sockets.emit('new_coords', {latitude, longitude, gpsAccuracy});
+
+  //TODO: log data to the server database
+  console.log('\n' + imei + '\n' + data);
+  console.log('data: ' + hexify.decode(data));
+};
+
+
 
 //This handles the post request made by the client
 //TODO: return the global requests list/chain/linkedlist object?
-  app.post('/client_message', function(req, res) {
-    // Use URL to parse the request and get a URL object from it.
-    var msgObject = req.body;
-    
-    var imei = msgObject.imei;
-    var username = msgObject.username;
-    var password = msgObject.password;
-    var message = msgObject.data;
-    console.log('got data: ' + message);
-    
-    rock.send(imei, username, password, message);
-    res.writeHead(200, {'content-type': 'application/json'});
-    res.end();
-  });
-
-// TODO: setup the rocblock server router to the /incoming url
-  app.post('/incoming', function(req, res){
-    console.log('incoming detected!');
-    
-    // The data sent from RB is in req.body
-    var formData = req.body;
-    console.log(formData);
-    console.log(formData.imei);
-    
-    // We will log the data
-    logData(formData.imei, formData.momsn, formData.transmit_time, formData.iridium_latitude, formData.iridium_longitude, formData.iridium_cep, formData.data);
-    
-    // RockBlock documentation requires us to respond with http status 200
-    // res.writeHead(200, {'Content-Type': 'application/json'});
-    // TODO: Do I really need this?
-    res.sendStatus(200);
-    res.end();
-  });
+app.post('/client_message', function(req, res) {
+  // Use URL to parse the request and get a URL object from it.
+  var msgObject = req.body;
   
-  app.post('/send_message', jsonParser, function(req, res) {
-    //TODO: Check if this is parsing correctly, record sent messages in db
-    var msgObject = req.body;
-    rock.send(msgObject.imei, msgObject.username, msgObject.password, msgObject.msg);
-    //console.log(msgObject.imei + " " + msgObject.username + " " + msgObject.password + " " + msgObject.msg);
-    res.writeHead(200, {'content-type': 'application/json'});
-    res.end();
-  });
+  var imei = msgObject.imei;
+  var username = msgObject.username;
+  var password = msgObject.password;
+  var message = msgObject.data;
+  console.log('got data: ' + message);
+  
+  rock.send(imei, username, password, message);
+  res.writeHead(200, {'content-type': 'application/json'});
+  res.end();
 });
 
+// TODO: setup the rocblock server router to the /incoming url
+app.post('/incoming', function(req, res){
+  console.log('incoming detected!');
+  
+  // The data sent from RB is in req.body
+  var formData = req.body;
+  console.log(formData);
+  console.log(formData.imei);
+  
+  // We will log the data
+  logData(formData.imei, formData.momsn, formData.transmit_time, formData.iridium_latitude, formData.iridium_longitude, formData.iridium_cep, formData.data);
+  
+  // RockBlock documentation requires us to respond with http status 200
+  // res.writeHead(200, {'Content-Type': 'application/json'});
+  // TODO: Do I really need this?
+  res.sendStatus(200);
+  res.end();
+});
 
+app.post('/send_message', jsonParser, function(req, res) {
+  //TODO: Check if this is parsing correctly, record sent messages in db
+  var msgObject = req.body;
+  rock.send(msgObject.imei, msgObject.username, msgObject.password, msgObject.msg);
+  //console.log(msgObject.imei + " " + msgObject.username + " " + msgObject.password + " " + msgObject.msg);
+  res.writeHead(200, {'content-type': 'application/json'});
+  res.end();
+});
 
+// This is how we send messages to the RockBlock servers
+var send = function(imei, username, password, data) {
+  request.post(
+    'https://core.rock7.com/rockblock',
+    { json: {
+      imei: imei,
+      username: username,
+      password: password,
+      data: data,
+    } },
+    function (error, response, body) {
+      //response + body here
+      if (!error && response.statusCode === 200) {
+        console.log(body);
+      }
+    }
+  );
+};
 
 
 //This is how we specify the path to the template files in the folder 'templates':
