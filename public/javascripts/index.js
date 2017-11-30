@@ -14,6 +14,9 @@ function sendToServer() {
   var messageButton = document.getElementById("send-message-button");
   var messageBox = document.getElementById("msg-box");
   
+  var longitudeBox = document.getElementById("longitude-box");
+  var latitudeBox = document.getElementById("latitude-box");
+  
   //Record transceiver configuration data
   
   var IMEI = imeiBox.value;
