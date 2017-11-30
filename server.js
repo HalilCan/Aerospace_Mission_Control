@@ -16,8 +16,11 @@ var qs = require('querystring');
 var express = require('express');
 var app = express();
 
+//Port config for Heroku, 5000 for Webstorm
+app.set( 'port', ( process.env.PORT || 8000 ));
+
 var server = app.listen(app.get('port') || 8000);
-var io = require('socket.io').listen(server);
+var io = require('socket.io').(server);
 
 app.use(express.static(__dirname + '/public'));
 
@@ -26,9 +29,6 @@ app.use(express.static(__dirname + '/public'));
 var bodyparser = require('body-parser');
 var jsonParser = bodyParser.json();
 app.use(bodyparser.urlencoded({extended: false}));
-
-//Port config for Heroku, 5000 for Webstorm
-app.set( 'port', ( process.env.PORT || 8000 ));
 
 var index = require('./routes/index');
 var users = require('./routes/users');
