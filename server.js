@@ -16,9 +16,8 @@ var qs = require('querystring');
 var express = require('express');
 var app = express();
 
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-io.connect('/');
+var server = app.listen(app.get('port') || 8000);
+var io = require('socket.io').listen(server);
 
 app.use(express.static(__dirname + '/public'));
 
