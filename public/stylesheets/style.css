@@ -33,7 +33,6 @@ a {
 
 #message-bar {
   flex-direction: column;
-  border-right: 1px solid red;
-  border-left: 1px solid black;
+  border-right: 1px solid black;
   width: 230px;
 }
