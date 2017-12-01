@@ -9,7 +9,9 @@ a {
 
 .header-message {
   position: absolute;
+  padding: 0;
   top: 1vh;
+  right: 5vw;
 }
 
 .coord-boxes {
