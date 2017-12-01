@@ -7,6 +7,11 @@ a {
   color: #00B7FF;
 }
 
+.header-message {
+  position: absolute;
+  top: 10vh;
+}
+
 .coord-boxes {
   position: absolute;
   top: 80vh;
