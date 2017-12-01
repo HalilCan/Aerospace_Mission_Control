@@ -1,13 +1,14 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #404040;
+  background-color: #242424;
   color: white;
 }
 
 input {
-  border-color: white;
-  background-color: #404040;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  background-color: #262626;
   color: white;
 }
 
