@@ -6,3 +6,22 @@ body {
 a {
   color: #00B7FF;
 }
+
+.coord-boxes {
+  position: absolute;
+  top: 70vh;
+}
+
+.message-boxes {
+  position: absolute;
+  top: 10vh;
+}
+
+.view-box {
+  height: 100vh;
+  display: inline-flex;
+}
+
+#message-bar {
+  flex-direction: column;
+}
