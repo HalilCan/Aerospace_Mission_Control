@@ -36,6 +36,7 @@ var users = require('./routes/users');
 // Main listening port for RockBlock Server communication
 var listeningPort = 8000;
 
+//incoming message class
 class incomingMessage {
   constructor(imei, momsn, transmitTime, iridiumLatitude, iridiumLongitude, iridiumCep, data) {
     this.imei = imei;
@@ -85,6 +86,9 @@ class incomingMessage {
   }
 }
 
+//Message inbox Array
+var inbox = new Array();
+
 // Global latitude and longitude variables for last known location
 var latitude = 0.0;
 var longitude = 0.0;
@@ -99,7 +103,11 @@ var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   var iridiumLongitude = irLon;
   var iridiumCep = irCep; //estimate of the accuracy of lat-long in km
   var data = data;
-  
+
+  var newMessage = new incomingMessage(imei, momsn, transmitTime, iridiumLatitude, iridiumLongitude, iridiumCep, data);
+  inbox.push(newMessage);
+  console.log(inbox[0].getDecodedData());
+
   latitude = iridiumLatitude;
   longitude = iridiumLongitude;
   gpsAccuracy = iridiumCep;
