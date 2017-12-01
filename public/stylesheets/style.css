@@ -10,7 +10,7 @@ a {
 .header-message {
   position: absolute;
   padding: 0;
-  top: 1vh;
+  top: 10vh;
   right: 5vw;
 }
 
@@ -22,6 +22,7 @@ a {
 .message-boxes {
   position: absolute;
   top: 10vh;
+  text-align: right;
 }
 
 .view-box {
