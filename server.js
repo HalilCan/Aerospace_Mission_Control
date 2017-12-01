@@ -36,6 +36,55 @@ var users = require('./routes/users');
 // Main listening port for RockBlock Server communication
 var listeningPort = 8000;
 
+class incomingMessage {
+  constructor(imei, momsn, transmitTime, iridiumLatitude, iridiumLongitude, iridiumCep, data) {
+    this.imei = imei;
+    this.momsn = momsn;
+    this.transmitTime = transmitTime;
+    this.iridiumLatitude = iridiumLatitude;
+    this.iridiumLongitude = iridiumLongitude;
+    this.iridiumCep = imei;
+    this.data = data;
+    this.dehexData = hexify.decode(data);
+  }
+  getImei() {
+        return this.imei;
+  }
+  getMomsn() {
+      return this.momsn;
+  }
+  getTransmitTime() {
+      return this.transmitTime;
+  }
+  getIridiumLatitude() {
+      return this.iridiumLatitude;
+  }
+  getIridiumLongitude() {
+      return this.iridiumLongitude;
+  }
+  getIridiumAccuracy() {
+      return this.iridiumCep;
+  }
+  getData() {
+      return this.data;
+  }
+  getDecodedData() {
+      return this.dehexData;
+  }
+  getObject() {
+      return {
+        'imei' : this.imei,
+        'momsn' : this.momsn,
+        'transmit_time' : this.transmitTime,
+        'iridium_latitude' : this.iridiumLatitude,
+        'iridium_longitude' : this.iridiumLongitude,
+        'accuracy' : this.iridiumCep,
+        'hex_data' : this.data,
+        'data' : this.dehexData
+      };
+  }
+}
+
 // Global latitude and longitude variables for last known location
 var latitude = 0.0;
 var longitude = 0.0;
