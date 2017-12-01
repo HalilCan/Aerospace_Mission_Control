@@ -1,7 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #161616;
+  background-color: #404040;
+  color: white;
+}
+
+input {
+  border-color: white;
+  background-color: #404040;
   color: white;
 }
 
@@ -35,6 +41,6 @@ a {
 
 #message-bar {
   flex-direction: column;
-  border-right: 1px solid black;
+  border-right: 1px solid whitesmoke;
   width: 230px;
 }
