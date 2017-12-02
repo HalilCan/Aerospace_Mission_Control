@@ -112,6 +112,7 @@ a {
 .inbox-element {
   position: relative;
   height: 20px;
+  margin-top: 1px;
   width: auto;
   border-bottom: 1px solid whitesmoke;
   display:inline-flex;
@@ -120,6 +121,8 @@ a {
 
 .time-row {
   width: 100px;
+  border-left: 1px solid whitesmoke;
+  padding-left: 3px;
   border-right: 1px solid whitesmoke;
   padding-right: 3px;
   margin-right: 3px;
