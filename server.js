@@ -148,6 +148,7 @@ app.post('/incoming', function(req, res){
   console.log(formData.imei);
   
   // We will log the data
+    //TODO: there is something wrong with the longitudes. It is probably here.
   logData(formData.imei, formData.momsn, formData.transmit_time, formData.iridium_latitude, formData.iridium_longitude, formData.iridium_cep, formData.data);
   
   // RockBlock documentation requires us to respond with http status 200
