@@ -41,6 +41,13 @@ a {
   text-align: right;
 }
 
+#inbox-box {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  flex: 3;
+}
+
 #message-form {
   display: inline-flex;
   flex-direction: column;

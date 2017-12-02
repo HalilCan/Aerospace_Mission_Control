@@ -28,8 +28,8 @@ body
                     label(for='message') Message:
                     input#msg-box.form-control(type='text', placeholder='Message here' name='msg' value='')
                 button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
-        br
-        br
+        div#inbox-box
+
         div.coord-boxes
             form#coord-form(method='POST' action='/')
                 div.form-group Last known coordinates:
