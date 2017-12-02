@@ -43,5 +43,5 @@ a {
 #message-bar {
   flex-direction: column;
   border-right: 1px solid whitesmoke;
-  width: 230px;
+  width: 15vw;
 }
