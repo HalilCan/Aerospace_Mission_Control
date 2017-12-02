@@ -9,10 +9,10 @@ head
     link(rel='stylesheet', href='/stylesheets/style.css')
 
 body
+    div.header-message
+        h1 Hello Hal!
+        p Today is #{date}.
     div.view-box#message-bar
-        div.header-message
-            h1 Hello Hal!
-            p Today is #{date}.
         div.message-boxes
             form#message-form(method='POST' action='/send_message')
                 div.form-group
