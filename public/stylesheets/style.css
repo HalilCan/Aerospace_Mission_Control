@@ -44,7 +44,7 @@ a {
   display: inline-flex;
   flex: 2;
   position: relative;
-  width: auto;
+  width: 200px;
   text-align: right;
 }
 
@@ -56,7 +56,7 @@ a {
   flex: 5;
   overflow-y: scroll;
   text-align: left;
-  margin-left: -30px;
+  margin-left: 0px;
 }
 
 #message-form {
@@ -76,7 +76,8 @@ a {
 #coord-form {
   display: inline-flex;
   flex-direction: column;
-  width: auto;
+  width: 250px;
+  margin-top: 7px;
 }
 
 .view-box {
@@ -85,13 +86,13 @@ a {
 }
 
 #message-bar {
-  flex-direction: column;
+  flex-direction: row;
   text-align: right;
-  position: absolute;
+  position: relative;
   border-right: 1px solid whitesmoke;
   display: flex;
-  width: auto;
-  height: 90vh;
+  width: 500px;
+  height: auto;
   padding-right: 30px;
   background-color: transparent;
 }
@@ -111,13 +112,42 @@ a {
 .inbox-element {
   position: relative;
   height: 20px;
-  width: 100px;
+  width: auto;
+  border-bottom: 1px solid whitesmoke;
   display:inline-flex;
+  text-align: justify;
+}
+
+.time-row {
+  width: 100px;
+  border-right: 1px solid whitesmoke;
+  padding-right: 3px;
+  margin-right: 3px;
+}
+
+.data-row {
+  width: 220px;
+  border-right: 1px solid whitesmoke;
+  padding-right: 3px;
+  margin-right: 3px;
+}
+
+.lat-row {
+  width: 68px;
+  border-right: 1px solid whitesmoke;
+  padding-right: 3px;
+  margin-right: 3px;
+}
+
+.lon-row {
+  width: 68px;
+  border-right: 1px solid whitesmoke;
+  padding-right: 3px;
 }
 
 .left-bar {
   position: relative;
-  width: auto;
+  width: 500px;
   height: auto;
   display:inline-flex;
   flex-direction: column;
