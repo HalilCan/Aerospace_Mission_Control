@@ -18,26 +18,20 @@ a {
 
 .header-message {
   position: absolute;
-  display: inline-block;
   padding: 0;
   top: 10vh;
   right: 5vw;
 }
 
 .coord-boxes {
-  display: inline-flex;
-  position: relative;
-  flex: 5;
-  top: 40vh;
-  width: auto;
+  position: absolute;
+  top: 80vh;
   text-align: right;
 }
 
 .message-boxes {
-  display: inline-flex;
-  flex: 2;
-  position: relative;
-  width: auto;
+  position: absolute;
+  top: 10vh;
   text-align: right;
 }
 
@@ -49,7 +43,5 @@ a {
 #message-bar {
   flex-direction: column;
   border-right: 1px solid whitesmoke;
-  display: flex;
   width: auto;
-  background-color: transparent;
 }
