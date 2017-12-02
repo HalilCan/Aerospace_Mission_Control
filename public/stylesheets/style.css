@@ -114,3 +114,11 @@ a {
   width: 100px;
   display:inline-flex;
 }
+
+.left-bar {
+  position: relative;
+  width: auto;
+  height: auto;
+  display:inline-flex;
+  flex-direction: column;
+}
