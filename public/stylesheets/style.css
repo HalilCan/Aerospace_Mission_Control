@@ -1,8 +1,16 @@
 body {
-  padding: 50px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-right: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #242424;
   color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:90vh;
+  width: 94vw;
+  display: inline-flex;
 }
 
 input {
@@ -80,7 +88,7 @@ a {
   border-right: 1px solid whitesmoke;
   display: flex;
   width: auto;
-  height: 100vh;
+  height: 90vh;
   padding-right: 30px;
   background-color: transparent;
 }
