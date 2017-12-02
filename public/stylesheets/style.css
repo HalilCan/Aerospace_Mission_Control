@@ -27,7 +27,7 @@ a {
 .coord-boxes {
   display: inline-flex;
   position: relative;
-  flex: 5;
+  flex: 10;
   top: 40vh;
   width: auto;
   text-align: right;
@@ -35,7 +35,7 @@ a {
 
 .message-boxes {
   display: inline-flex;
-  flex: 2;
+  flex: 1;
   position: relative;
   width: auto;
   text-align: right;
@@ -68,8 +68,11 @@ a {
 
 #message-bar {
   flex-direction: column;
+  text-align: right;
+  position: absolute;
   border-right: 1px solid whitesmoke;
   display: flex;
   width: auto;
+  padding-right: 30px;
   background-color: transparent;
 }
