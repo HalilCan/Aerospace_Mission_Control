@@ -27,7 +27,7 @@ socket.on('new_message', function(obj){
     recentLongitude = obj.longitude;
     recentAccuracy = obj.acc;
 
-    var inboxElement = "<div class = 'inbox-element'><div class = 'time-row'>" + timestamp + "</div> <div class = 'data-row'>" + data + "</div><div class = 'lat-row'>" + recentLatitude + "</div><div class = 'lon-row'>\" + recentLongitude + \"</div> </div>";
+    var inboxElement = "<div class = 'inbox-element'><div class = 'time-row'>" + timestamp + "</div> <div class = 'data-row'>" + data + "</div><div class = 'lat-row'>" + recentLatitude + "</div><div class = 'lon-row'>" + recentLongitude + "</div> </div>";
     inBox.innerHTML += inboxElement;
 
     longitudeBox.value = recentLongitude;
