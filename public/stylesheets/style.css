@@ -41,26 +41,6 @@ a {
   text-align: right;
 }
 
-#message-form {
-  display: inline-flex;
-  flex-direction: column;
-  width: auto;
-}
-
-#message-form button {
-  background-color: transparent;
-  color: whitesmoke;
-  margin-top: 10px;
-  margin-left: 90px;
-  width: 120px;
-}
-
-#coord-form {
-  display: inline-flex;
-  flex-direction: column;
-  width: auto;
-}
-
 .view-box {
   height: 100vh;
   display: inline-flex;
