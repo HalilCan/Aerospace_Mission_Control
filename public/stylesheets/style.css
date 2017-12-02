@@ -27,15 +27,14 @@ a {
 .coord-boxes {
   display: inline-flex;
   position: relative;
-  flex: 10;
-  top: 40vh;
+  flex: 1;
   width: auto;
   text-align: right;
 }
 
 .message-boxes {
   display: inline-flex;
-  flex: 1;
+  flex: 2;
   position: relative;
   width: auto;
   text-align: right;
@@ -45,7 +44,7 @@ a {
   display: inline-block;
   position: relative;
   height: auto;
-  flex: 3;
+  flex: 8;
 }
 
 #message-form {
