@@ -29,7 +29,15 @@ body
                         input#msg-box.form-control(type='text', placeholder='Message here' name='msg' value='')
                     button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
         div#inbox-box
-
+            div.inbox-element
+                div.time-row
+                    span Timestamp yo
+                div.data-row
+                    span DATADATATATA
+                div.lat-row
+                    span Lati.tude
+                div.lon-row
+                    span Longi.tude
         div.coord-boxes
             form#coord-form(method='POST' action='/')
                 div.form-group Last known coordinates:
