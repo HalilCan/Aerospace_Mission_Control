@@ -18,21 +18,47 @@ a {
 
 .header-message {
   position: absolute;
+  display: inline-block;
   padding: 0;
   top: 10vh;
   right: 5vw;
 }
 
 .coord-boxes {
-  position: absolute;
-  top: 80vh;
+  display: inline-flex;
+  position: relative;
+  flex: 5;
+  top: 40vh;
+  width: auto;
   text-align: right;
 }
 
 .message-boxes {
-  position: absolute;
-  top: 10vh;
+  display: inline-flex;
+  flex: 2;
+  position: relative;
+  width: auto;
   text-align: right;
+}
+
+#message-form {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+}
+
+#message-form button {
+  background-color: transparent;
+  color: whitesmoke;
+  margin-top: 10px;
+  margin-left: 90px;
+  width: 120px;
+}
+
+#coord-form {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
 }
 
 .view-box {
@@ -43,5 +69,7 @@ a {
 #message-bar {
   flex-direction: column;
   border-right: 1px solid whitesmoke;
+  display: flex;
   width: auto;
+  background-color: transparent;
 }
