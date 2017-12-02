@@ -98,7 +98,7 @@ var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   // Collect all the important information from the message;
   var imei = imei;
   var momsn = momsn;
-  var transmitTime = irLat;
+  var transmitTime = transmitTime;
   var iridiumLatitude = irLat;
   var iridiumLongitude = irLon;
   var iridiumCep = irCep; //estimate of the accuracy of lat-long in km
@@ -112,7 +112,7 @@ var logData = function(imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   longitude = iridiumLongitude;
   gpsAccuracy = iridiumCep;
 
-  io.sockets.emit('new_coords', {'latitude':latitude, 'longitude':longitude, 'acc':gpsAccuracy});
+  io.sockets.emit('new_message', {'timestamp' : transmitTime, 'data': hexify.decode(data), 'latitude':latitude, 'longitude':longitude, 'acc':gpsAccuracy});
 
   //TODO: log data to the server database
   console.log('\n' + imei + '\n' + data);

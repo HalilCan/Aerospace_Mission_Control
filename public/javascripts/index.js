@@ -12,6 +12,29 @@ var recentLatitude = 0.0;
 var recentLongitude = 0.0;
 var recentAccuracy = 0.0;
 
+socket.on('new_message', function(obj){
+    var longitudeBox = document.getElementById("longitude-box");
+    var latitudeBox = document.getElementById("latitude-box");
+    var accuracyBox = document.getElementById("accuracy-box");
+
+    var inBox = document.getElementById("inbox-box");
+
+    var data = obj.data;
+    var timestamp = obj.timestamp;
+
+    console.log('new message update socket caught!');
+    recentLatitude = obj.latitude;
+    recentLongitude = obj.longitude;
+    recentAccuracy = obj.acc;
+
+    var inboxElement = "<div class = 'inbox-element'><div class = 'time-row'>" + timestamp + "</div> <div class = 'data-row'>" + data + "</div><div class = 'lat-row'>" + recentLatitude + "</div><div class = 'lon-row'>\" + recentLongitude + \"</div> </div>";
+    inBox.innerHTML += inboxElement;
+
+    longitudeBox.value = recentLongitude;
+    latitudeBox.value = recentLatitude;
+    accuracyBox.value = recentAccuracy;
+});
+
 socket.on('new_coords', function(obj){
   var longitudeBox = document.getElementById("longitude-box");
   var latitudeBox = document.getElementById("latitude-box");
@@ -21,10 +44,7 @@ socket.on('new_coords', function(obj){
   recentLatitude = obj.latitude;
   recentLongitude = obj.longitude;
   recentAccuracy = obj.acc;
-  
-  longitudeBox.innerHTML = recentLongitude;
-  latitudeBox.innerHTML = recentLatitude;
-  accuracyBox.innerHTML = recentAccuracy;
+
   longitudeBox.value = recentLongitude;
   latitudeBox.value = recentLatitude;
   accuracyBox.value = recentAccuracy;
