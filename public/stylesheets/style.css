@@ -44,7 +44,8 @@ a {
   display: inline-block;
   position: relative;
   height: auto;
-  flex: 8;
+  width: auto;
+  flex: 5;
 }
 
 #message-form {
@@ -79,6 +80,7 @@ a {
   border-right: 1px solid whitesmoke;
   display: flex;
   width: auto;
+  height: 100vh;
   padding-right: 30px;
   background-color: transparent;
 }
