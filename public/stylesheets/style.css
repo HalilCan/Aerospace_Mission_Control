@@ -29,6 +29,7 @@ a {
   position: relative;
   flex: 5;
   top: 40vh;
+  width: auto;
   text-align: right;
 }
 
@@ -36,7 +37,28 @@ a {
   display: inline-flex;
   flex: 2;
   position: relative;
+  width: auto;
   text-align: right;
+}
+
+#message-form {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+}
+
+#message-form button {
+  background-color: transparent;
+  color: whitesmoke;
+  margin-top: 10px;
+  margin-left: 90px;
+  width: 120px;
+}
+
+#coord-form {
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
 }
 
 .view-box {
