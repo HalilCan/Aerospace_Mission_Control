@@ -52,8 +52,11 @@ a {
   display: inline-block;
   position: relative;
   height: auto;
-  width: auto;
+  width: 240px;
   flex: 5;
+  overflow-y: scroll;
+  text-align: left;
+  margin-left: -30px;
 }
 
 #message-form {
@@ -91,4 +94,23 @@ a {
   height: 90vh;
   padding-right: 30px;
   background-color: transparent;
+}
+
+.left-upper-row {
+  display:inline-flex;
+  flex-direction: row;
+  flex: 2;
+  position: relative;
+}
+
+.left-lower-row {
+  display: inline-flex;
+  flex: 10;
+}
+
+.inbox-element {
+  position: relative;
+  height: 20px;
+  width: 100px;
+  display:inline-flex;
 }

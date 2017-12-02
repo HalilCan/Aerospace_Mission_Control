@@ -12,41 +12,44 @@ body
     div.header-message
         h1 Hello Hal!
         p Today is #{date}.
-    div.view-box#message-bar
-        div.message-boxes
-            form#message-form(method='POST' action='/send_message')
+    div.left-upper-row
+        div.view-box#message-bar
+            div.message-boxes
+                form#message-form(method='POST' action='/send_message')
+                        div.form-group
+                            label(for='username') Username:
+                            input#username-box.form-control(type='text', placeholder='Username here' name='username' value='')
+                        div.form-group
+                            label(for='password') Password:
+                            input#password-box.form-control(type='text', placeholder='Password here' name='password' value='')
+                        div.form-group
+                            label(for='imei') IMEI:
+                            input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei' value='')
+                        div.form-group
+                            label(for='message') Message:
+                            input#msg-box.form-control(type='text', placeholder='Message here' name='msg' value='')
+                        button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
+
+            div.coord-boxes
+                form#coord-form(method='POST' action='/')
+                    div.form-group Last known coordinates:
+                        br
+                        label(for='longitude') Longitude:
+                        input#longitude-box.form-control(type='text', placeholder='0.0' name='longitude' value='')
                     div.form-group
-                        label(for='username') Username:
-                        input#username-box.form-control(type='text', placeholder='Username here' name='username' value='')
+                        label(for='latitude') Latitude:
+                        input#latitude-box.form-control(type='text', placeholder='0.0' name='latitude' value='')
                     div.form-group
-                        label(for='password') Password:
-                        input#password-box.form-control(type='text', placeholder='Password here' name='password' value='')
-                    div.form-group
-                        label(for='imei') IMEI:
-                        input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei' value='')
-                    div.form-group
-                        label(for='message') Message:
-                        input#msg-box.form-control(type='text', placeholder='Message here' name='msg' value='')
-                    button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
+                        label(for='accurracy') Accuracy:
+                        input#accuracy-box.form-control(type='text', placeholder='0.0' name='accuracy' value='')
+    div.left-lower-row
         div#inbox-box
             div.inbox-element
                 div.time-row
-                    span Timestamp yo
+                    span Timestamp
                 div.data-row
                     span DATADATATATA
                 div.lat-row
                     span Lati.tude
                 div.lon-row
                     span Longi.tude
-        div.coord-boxes
-            form#coord-form(method='POST' action='/')
-                div.form-group Last known coordinates:
-                    br
-                    label(for='longitude') Longitude:
-                    input#longitude-box.form-control(type='text', placeholder='0.0' name='longitude' value='')
-                div.form-group
-                    label(for='latitude') Latitude:
-                    input#latitude-box.form-control(type='text', placeholder='0.0' name='latitude' value='')
-                div.form-group
-                    label(for='accurracy') Accuracy:
-                    input#accuracy-box.form-control(type='text', placeholder='0.0' name='accuracy' value='')
