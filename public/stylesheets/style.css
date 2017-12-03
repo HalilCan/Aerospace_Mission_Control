@@ -160,9 +160,13 @@ a {
 .map-box {
   position: relative;
   display: inline-flex;
+  width: 400px;
   height: auto;
 }
 
 #map {
+  position: relative;
+  display: inline-flex;
+  width: 400px;
   height: 500px;
 }
