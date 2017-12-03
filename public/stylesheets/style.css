@@ -115,6 +115,7 @@ a {
   height: 40px;
   margin-top: 1px;
   width: auto;
+  border-top: 1px solid whitesmoke;
   border-bottom: 1px solid whitesmoke;
   display:inline-flex;
   text-align: justify;
