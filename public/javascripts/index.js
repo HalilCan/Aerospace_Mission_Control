@@ -321,7 +321,7 @@ function initMap(inboxArray) {
                 "elementType": "geometry",
                 "stylers": [
                     {
-                        "color": "#000000"
+                        "color": "#262626"
                     }
                 ]
             },
