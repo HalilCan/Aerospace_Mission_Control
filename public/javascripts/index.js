@@ -98,14 +98,14 @@ function sendToServer() {
 }
 
 //Google Maps part
-function initMap(latLngArray) {
+function initMap(latLngObjArray) {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
         center: {lat: 0, lng: -180},
         mapTypeId: 'terrain'
     });
 
-    var flightPlanCoordinates = latLngArray
+    var flightPlanCoordinates = latLngObjArray;
         //[{lat: 0, lng: 0},]
 
     var flightPath = new google.maps.Polyline({
@@ -119,7 +119,7 @@ function initMap(latLngArray) {
     flightPath.setMap(map);
 }
 
-
+initmap([{lat: 37.101, lng: -122.214},{lat: 47.101, lng: -125.214}]);
 
 /* $('message-form').submit(function(event) {
   //We don't want the form to redirect the client
