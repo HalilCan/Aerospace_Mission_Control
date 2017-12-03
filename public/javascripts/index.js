@@ -32,7 +32,7 @@ socket.on('new_message', function(obj){
     var inboxElement = "<div class = 'inbox-element'><div class = 'time-row'>" + timestamp + "</div> <div class = 'data-row'>" + data + "</div><div class = 'lat-row'>" + recentLatitude + "</div><div class = 'lon-row'>" + recentLongitude + "</div> </div>";
     inBox.innerHTML += inboxElement;
 
-    inboxArray.push({'latitude' : recentLatitude, 'longitude' : recentLongitude, 'accuracy' : recentAccuracy, 'timestamp' : timestamp, 'data' : data});
+    inboxArray.push({'latitude' : parseFloat(recentLatitude), 'longitude' : parseFloat(recentLongitude), 'accuracy' : parseInt(recentAccuracy), 'timestamp' : timestamp, 'data' : data});
     initMap(inboxArray);
 
     longitudeBox.value = recentLongitude;
