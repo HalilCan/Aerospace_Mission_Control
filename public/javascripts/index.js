@@ -233,7 +233,7 @@ function initMap(inboxArray) {
 
     for (var i = 0; i < inboxArray.length; i++) {
         var accuracyCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#fafff8',
             strokeOpacity: 0.7,
             strokeWeight: 2,
             fillColor: 'FF0000',
@@ -245,7 +245,7 @@ function initMap(inboxArray) {
     }
 
 
-    var flightPath = new google.maps.Polyline({ path: coordArray, geodesic: true, strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map);
+    var flightPath = new google.maps.Polyline({ path: coordArray, geodesic: true, strokeColor: '#fef8ff', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map);
 }
 
 /* $('message-form').submit(function(event) {
