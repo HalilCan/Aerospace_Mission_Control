@@ -129,15 +129,22 @@ function sendToServer() {
 initMap([{lat: 37.101, lng: -122.214},{lat: 47.101, lng: -125.214}]);
 */
 
-function initMap(inbox) {
+function initMap(inboxArray) {
     var coordArray = [];
     var accuracyArray = [];
-    for (var message in inbox) {
+    for (var i = 0; i < inboxArray.length; i++) {
+        var message = inboxArray[i];
+        console.log('mapside latitude: ' + message.latitude);
+        coordArray.push({'lat': message.latitude, 'lng': message.longitude});
+        accuracyArray.push({'acc': message.accuracy});
+    }
+    /*
+    for (var message in inboxArray) {
         console.log(message.latitude);
         coordArray.push({'lat': message.latitude, 'lng': message.longitude});
         accuracyArray.push({'acc': message.accuracy});
     }
-
+    */
     var map = new google.maps.Map(document.getElementById('map'), { zoom: 3, center: {lat: 0, lng: -180}, mapTypeId: 'terrain' });
 
     var flightPath = new google.maps.Polyline({ path: coordArray, geodesic: true, strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map);
