@@ -146,8 +146,8 @@ function initMap(inboxArray) {
     }
     */
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: {lat: 39.9523300, lng: -75.1637900},
+        zoom: 7,
+        center: {lat: 39.95233, lng: -75.16379},
         mapTypeId: 'terrain',
         styles: [
             {
