@@ -134,7 +134,7 @@ function initMap(inboxArray) {
     var accuracyArray = [];
     for (var i = 0; i < inboxArray.length; i++) {
         var message = inboxArray[i];
-        console.log('mapside latitude: ' + message.latitude);
+        // console.log('mapside latitude: ' + message.latitude);
         coordArray.push({'lat': message.latitude, 'lng': message.longitude});
         accuracyArray.push({'acc': message.accuracy});
     }
@@ -146,6 +146,20 @@ function initMap(inboxArray) {
     }
     */
     var map = new google.maps.Map(document.getElementById('map'), { zoom: 3, center: {lat: 0, lng: -180}, mapTypeId: 'terrain' });
+
+    for (var i = 0; i < inboxArray.length; i++) {
+        var accuracyCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.7,
+            strokeWeight: 2,
+            fillColor: 'FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: {lat: coordArray[i].lat, lng: coordArray[i].lng},
+            radius: 2 * accuracyArray[i].acc
+        });
+    }
+
 
     var flightPath = new google.maps.Polyline({ path: coordArray, geodesic: true, strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map);
 }
