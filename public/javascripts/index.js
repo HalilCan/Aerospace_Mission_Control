@@ -33,6 +33,8 @@ socket.on('new_message', function(obj){
     inBox.innerHTML += inboxElement;
 
     inboxArray.push({'latitude' : parseFloat(recentLatitude), 'longitude' : parseFloat(recentLongitude), 'accuracy' : parseInt(recentAccuracy), 'timestamp' : timestamp, 'data' : data});
+    console.log('most recent latitude: ' + parseFloat(recentLatitude));
+    console.log('final array latitude: ' + parseFloat(inboxArray[inboxArray.length].latitude));
     initMap(inboxArray);
 
     longitudeBox.value = recentLongitude;
@@ -132,7 +134,7 @@ function initMap(inbox) {
     var accuracyArray = new Array();
     for (var message in inbox) {
         console.log(message.latitude);
-        coordArray.push({'lat': parseFloat(message.latitude), 'lng': parseFloat(message.longitude)});
+        coordArray.push({'lat': message.latitude, 'lng': message.longitude});
         accuracyArray.push({'acc': message.accuracy});
     }
 
