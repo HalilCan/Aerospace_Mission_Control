@@ -131,7 +131,7 @@ function initMap(inbox) {
     var coordArray = new Array();
     var accuracyArray = new Array();
     for (var message in inbox) {
-        coordArray.push({'lat': message.latitude, 'lng': message.longitude});
+        coordArray.push({'lat': parseFloat(message.latitude), 'lng': parseFloat(message.longitude)});
         accuracyArray.push({'acc': message.accuracy});
     }
 
