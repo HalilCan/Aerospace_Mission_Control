@@ -134,6 +134,7 @@ a {
   border-right: 1px solid whitesmoke;
   padding-right: 3px;
   margin-right: 3px;
+  word-wrap: break-word;
 }
 
 .lat-row {
