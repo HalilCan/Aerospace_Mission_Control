@@ -342,7 +342,7 @@ function initMap(inboxArray) {
             strokeColor: '#fafff8',
             strokeOpacity: 0.7,
             strokeWeight: 2,
-            fillColor: 'FF0000',
+            fillColor: '#ffd6e8',
             fillOpacity: 0.35,
             map: map,
             center: {lat: coordArray[i].lat, lng: coordArray[i].lng},
