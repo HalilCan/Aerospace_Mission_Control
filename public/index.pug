@@ -49,8 +49,12 @@ body
                     div.time-row
                         span Timestamp
                     div.data-row
-                        span DATADATATATA
+                        span Data
                     div.lat-row
-                        span Lati.tude
+                        span Latitude
                     div.lon-row
-                        span Longi.tude
+                        span Longitude
+    div.right-bar
+        div.map-box
+            div#map
+    script (async, defer, src='https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap')

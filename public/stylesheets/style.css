@@ -156,3 +156,13 @@ a {
   display:inline-flex;
   flex-direction: column;
 }
+
+.map-box {
+  position: relative;
+  display: inline-flex;
+  height: auto;
+}
+
+#map {
+  height: 500px;
+}

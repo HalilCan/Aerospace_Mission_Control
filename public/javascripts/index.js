@@ -97,6 +97,28 @@ function sendToServer() {
   });
 }
 
+//Google Maps part
+function initMap(latLngArray) {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 3,
+        center: {lat: 0, lng: -180},
+        mapTypeId: 'terrain'
+    });
+
+    var flightPlanCoordinates = latLngArray
+        //[{lat: 0, lng: 0},]
+
+    var flightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+        geodesic: true,
+        strokeColor: '#3b4264',
+        strokeOpacity: 0.7,
+        strokeWeight: 2
+    });
+
+    flightPath.setMap(map);
+}
+
 
 
 /* $('message-form').submit(function(event) {
