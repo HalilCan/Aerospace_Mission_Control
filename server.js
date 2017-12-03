@@ -201,5 +201,9 @@ app.get('/', function (req, res) {
   res.render('index', {date: (new Date()).toDateString()});
 });
 
+app.get('/google08d810c04f18415c.html', function (req, res) {
+  res.render('google08d810c04f18415c');
+})
+
 
 //app.listen(app.get('port'));
