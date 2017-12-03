@@ -149,7 +149,7 @@ app.post('/incoming', function(req, res){
   
   // We will log the data
     //TODO: there is something wrong with the longitudes. It is probably here. Hint: no negative values at all for lat and lng. Temp fix: all longitudes are negative
-  logData(formData.imei, formData.momsn, formData.transmit_time, formData.iridium_latitude, ('-' + formData.iridium_longitude), formData.iridium_cep, formData.data);
+  logData(formData.imei, formData.momsn, formData.transmit_time, formData.iridium_latitude, (formData.iridium_longitude), formData.iridium_cep, formData.data);
   
   // RockBlock documentation requires us to respond with http status 200
   // res.writeHead(200, {'Content-Type': 'application/json'});
