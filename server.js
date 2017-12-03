@@ -202,8 +202,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/google08d810c04f18415c.html', function (req, res) {
-  res.render('google08d810c04f18415c');
-})
-
-
+    var data = fs.readFile('/google08d810c04f18415c.html', function (err, data) {
+        res.setHeader('Content-Type', 'text/html');
+        res.send(data);
+    });
+});
 //app.listen(app.get('port'));
