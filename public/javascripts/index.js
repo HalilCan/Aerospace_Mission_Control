@@ -12,6 +12,8 @@ var recentLatitude = 0.0;
 var recentLongitude = 0.0;
 var recentAccuracy = 0.0;
 
+var inboxArray = new Array();
+
 socket.on('new_message', function(obj){
     var longitudeBox = document.getElementById("longitude-box");
     var latitudeBox = document.getElementById("latitude-box");
@@ -29,6 +31,9 @@ socket.on('new_message', function(obj){
 
     var inboxElement = "<div class = 'inbox-element'><div class = 'time-row'>" + timestamp + "</div> <div class = 'data-row'>" + data + "</div><div class = 'lat-row'>" + recentLatitude + "</div><div class = 'lon-row'>" + recentLongitude + "</div> </div>";
     inBox.innerHTML += inboxElement;
+
+    inboxArray.push({'latitude' : recentLatitude, 'longitude' : recentLongitude, 'accuracy' : recentAccuracy, 'timestamp' : timestamp, 'data' : data});
+    initMap(inboxArray);
 
     longitudeBox.value = recentLongitude;
     latitudeBox.value = recentLatitude;
@@ -122,9 +127,18 @@ function sendToServer() {
 initMap([{lat: 37.101, lng: -122.214},{lat: 47.101, lng: -125.214}]);
 */
 
-function initMap() { var map = new google.maps.Map(document.getElementById('map'), { zoom: 3, center: {lat: 0, lng: -180}, mapTypeId: 'terrain' });
-    var flightPlanCoordinates = [ {lat: 37.772, lng: -122.214}, {lat: 21.291, lng: -157.821}, {lat: -18.142, lng: 178.431}, {lat: -27.467, lng: 153.027} ];
-    var flightPath = new google.maps.Polyline({ path: flightPlanCoordinates, geodesic: true, strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map); }
+function initMap(inbox) {
+    var coordArray = new Array();
+    var accuracyArray = new Array();
+    for (var message in inbox) {
+        coordArray.push({'lat': message.latitude, 'lng': message.longitude});
+        accuracyArray.push({'acc': message.accuracy});
+    }
+
+    var map = new google.maps.Map(document.getElementById('map'), { zoom: 3, center: {lat: 0, lng: -180}, mapTypeId: 'terrain' });
+
+    var flightPath = new google.maps.Polyline({ path: coordArray, geodesic: true, strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map);
+}
 
 /* $('message-form').submit(function(event) {
   //We don't want the form to redirect the client
