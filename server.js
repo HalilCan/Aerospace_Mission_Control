@@ -201,10 +201,4 @@ app.get('/', function (req, res) {
   res.render('index', {date: (new Date()).toDateString()});
 });
 
-app.get('/google08d810c04f18415c.html', function (req, res) {
-    var data = fs.readFile('/google08d810c04f18415c.html', function (err, data) {
-        res.setHeader('Content-Type', 'text/html');
-        res.send(data);
-    });
-});
 //app.listen(app.get('port'));
