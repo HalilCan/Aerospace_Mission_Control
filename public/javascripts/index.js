@@ -119,7 +119,7 @@ function initMap(latLngObjArray) {
     flightPath.setMap(map);
 }
 
-initmap([{lat: 37.101, lng: -122.214},{lat: 47.101, lng: -125.214}]);
+initMap([{lat: 37.101, lng: -122.214},{lat: 47.101, lng: -125.214}]);
 
 /* $('message-form').submit(function(event) {
   //We don't want the form to redirect the client
