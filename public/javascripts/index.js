@@ -156,7 +156,7 @@ function initMap(inboxArray) {
             fillOpacity: 0.35,
             map: map,
             center: {lat: coordArray[i].lat, lng: coordArray[i].lng},
-            radius: 2 * accuracyArray[i].acc
+            radius: 1000 * accuracyArray[i].acc
         });
     }
 
