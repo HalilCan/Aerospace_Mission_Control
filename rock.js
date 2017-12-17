@@ -18,7 +18,6 @@ var send = function(imei, username, password, data) {
     username: username,
     password: password,
     data: hexifiedData,
-      timestamp: ;
   };
   var dataString = JSON.stringify(dataObject);
   
