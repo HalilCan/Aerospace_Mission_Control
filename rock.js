@@ -17,7 +17,7 @@ var send = function(imei, username, password, data) {
     imei: imei,
     username: username,
     password: password,
-    data: hexifiedData,
+    data: hexifiedData
   };
   var dataString = JSON.stringify(dataObject);
   
