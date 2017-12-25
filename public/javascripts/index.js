@@ -391,10 +391,10 @@ function getCurrentDate() {
 }
 
 function inboxToCsv() {
-    var csv = 'timestamp,latitude,longitude,accuracy,data\n\r';
+    var csv = 'timestamp,latitude,longitude,accuracy,data;';
     for (var i = 0; i < inboxArray.length; i++) {
         var inboundMsg = inboxArray[i];
-        csv += inboundMsg.timestamp+','+inboundMsg.latitude.toString()+','+inboundMsg.longitude.toString()+','+inboundMsg.accuracy.toString()+','+inboundMsg.data+'\n\r';
+        csv += inboundMsg.timestamp+','+inboundMsg.latitude.toString()+','+inboundMsg.longitude.toString()+','+inboundMsg.accuracy.toString()+','+inboundMsg.data+';';
     }
     return csv;
 }
