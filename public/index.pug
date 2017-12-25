@@ -12,6 +12,12 @@ head
 body
     div#download-csv-div
         button#download-csv-button(type='button' onclick='downloadCsv()') Download Flight Data
+        br
+        form#upload-csv-form(action='/upload' enctype='multipart/form-data' method='post') Upload Data for Analysis
+            br
+            input(type='file' name='upload' multiple='multiple')
+            br
+            input(type='submit' value = 'Upload')
     div.header-message
         h1 Hello Hal!
         p Today is #{date}.

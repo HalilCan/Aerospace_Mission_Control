@@ -12,6 +12,7 @@ var url = require('url');
 var fs = require('fs');
 var hexify = require('./hexify');
 var qs = require('querystring');
+var formidable = require('formidable');
 
 var express = require('express');
 var app = express();
@@ -199,6 +200,20 @@ app.get('/home', function (req, res) {
 
 app.get('/', function (req, res) {
   res.render('index', {date: (new Date()).toDateString()});
+});
+
+//formidable file upload for flight data analysis
+app.post('/upload', function (req, res){
+  var form = new formidable.IncomingForm();
+
+  form.parse(req, function(err, fields, files) {
+    res.writeHead(200, {'content-type': 'text/plain'});
+    res.write('received upload:\n\n');
+
+
+
+    res.end(util.inspect({fields: fields, files: files}));
+  });
 });
 
 //app.listen(app.get('port'));

@@ -193,7 +193,17 @@ a {
   z-index: 99;
   height: 20px;
 
-  background-color: transparent;
+  background-color: #626262;
+  color: whitesmoke;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+}
+
+#upload-csv-form {
+  position: relative;
+  display: inline-block;
+
+  background-color: #757576;
   color: whitesmoke;
   border: 1px solid darkgray;
   border-radius: 2px;
