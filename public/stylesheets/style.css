@@ -174,3 +174,25 @@ a {
   height: 800px;
   overflow: hidden;
 }
+
+#download-csv-div {
+  position: fixed;
+  display: inline-block;
+  top: 80vh;
+  left: 80vw;
+  width: auto;
+}
+
+#download-csv-button {
+  position: relative;
+  display: inline-block;
+
+  width: 100px;
+  height: 20px;
+
+  background-color: whitesmoke;
+  color: black;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+}
+
