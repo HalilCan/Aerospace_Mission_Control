@@ -187,7 +187,8 @@ a {
   position: relative;
   display: inline-block;
 
-  width: 180px;
+  width: 160px;
+  z-index: -1;
   height: 20px;
 
   background-color: transparent;
