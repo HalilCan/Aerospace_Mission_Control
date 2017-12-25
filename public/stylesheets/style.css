@@ -178,9 +178,11 @@ a {
 #download-csv-div {
   position: fixed;
   display: inline-block;
+
   top: 90vh;
   left: 80vw;
   width: auto;
+  z-index: 99;
 }
 
 #download-csv-button {
@@ -188,7 +190,7 @@ a {
   display: inline-block;
 
   width: 160px;
-  z-index: -1;
+  z-index: 99;
   height: 20px;
 
   background-color: transparent;
