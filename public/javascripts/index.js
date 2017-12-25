@@ -354,6 +354,50 @@ function initMap(inboxArray) {
     var flightPath = new google.maps.Polyline({ path: coordArray, geodesic: true, strokeColor: '#fef8ff', strokeOpacity: 1.0, strokeWeight: 2 }); flightPath.setMap(map);
 }
 
+function downloadCsv() {
+    var csv = inboxToCsv();
+    var dateText = getCurrentDate();
+    var filename = 'flightData-' + dateText;
+    var element = document.createElement('a');
+
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csv));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+function getCurrentDate() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    return today;
+}
+
+function inboxToCsv() {
+    var csv = 'timestamp,latitude,longitude,accuracy,data\n';
+    for (var i = 0; i < inboxArray.length; i++) {
+        var inboundMsg = inboxArray[i];
+        csv += inboundMsg.timestamp+','+inboundMsg.latitude.toString()+','+inboundMsg.longitude.toString()+','+inboundMsg.accuracy.toString()+','+inboundMsg.data+'\n';
+    }
+    return csv;
+}
 /* $('message-form').submit(function(event) {
   //We don't want the form to redirect the client
   event.preventDefault();
