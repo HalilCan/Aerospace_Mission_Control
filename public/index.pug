@@ -10,60 +10,76 @@ head
     link(rel='stylesheet', href='/stylesheets/style.css')
 
 body
-    div#download-csv-div
-        button#download-csv-button(type='button' onclick='downloadCsv()') Download Flight Data
-        br
-        form#upload-csv-form(action='/upload' enctype='multipart/form-data' method='post') Upload Data for Analysis
+    div.tab
+        button.tablinks(onclick = "openTab(event,'sim')") Simulation
+        button.tablinks(onclick = "openTab(event,'mission')") Launch
+    div.tab-content#sim-tab
+        div#burst-calc
+            form#burst-form Balloon Burst Calculation
+                div.form-group
+                    label Gas Type
+                    input#gasType-box
+                    label Launch Volume
+                    input#launchVolume-box
+                    label Balloon Weight
+                    input#balloonWeight-box
+                    label Payload Weight
+                    input#payloadWeight-box
+    div.tab-content#mission-tab
+        div#download-csv-div
+            button#download-csv-button(type='button' onclick='downloadCsv()') Download Flight Data
             br
-            input(type='file' name='upload' multiple='multiple')
-            br
-            input(type='submit' value = 'Upload')
-    div.header-message
-        h1 Hello Hal!
-        p Today is #{date}.
-    div.left-bar
-        div.left-upper-row
-            div.view-box#message-bar
-                div.message-boxes
-                    form#message-form(method='POST' action='/send_message')
-                        div.form-group
-                            label(for='username') Username:
-                            input#username-box.form-control(type='text', placeholder='Username here' name='username' value='')
-                        div.form-group
-                            label(for='password') Password:
-                            input#password-box.form-control(type='text', placeholder='Password here' name='password' value='')
-                        div.form-group
-                            label(for='imei') IMEI:
-                            input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei' value='')
-                        div.form-group
-                            label(for='message') Message:
-                            input#msg-box.form-control(type='text', placeholder='Message here' name='msg' value='')
-                        button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
+            form#upload-csv-form(action='/upload' enctype='multipart/form-data' method='post') Upload Data for Analysis
+                br
+                input(type='file' name='upload' multiple='multiple')
+                br
+                input(type='submit' value = 'Upload')
+        div.header-message
+            h1 Hello Hal!
+            p Today is #{date}.
+        div.left-bar
+            div.left-upper-row
+                div.view-box#message-bar
+                    div.message-boxes
+                        form#message-form(method='POST' action='/send_message')
+                            div.form-group
+                                label(for='username') Username:
+                                input#username-box.form-control(type='text', placeholder='Username here' name='username' value='')
+                            div.form-group
+                                label(for='password') Password:
+                                input#password-box.form-control(type='text', placeholder='Password here' name='password' value='')
+                            div.form-group
+                                label(for='imei') IMEI:
+                                input#imei-box.form-control(type='text', placeholder='IMEI here' name='imei' value='')
+                            div.form-group
+                                label(for='message') Message:
+                                input#msg-box.form-control(type='text', placeholder='Message here' name='msg' value='')
+                            button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
 
-                div.coord-boxes
-                    form#coord-form(method='POST' action='/')
-                        div.form-group Last known coordinates:
-                            br
-                            label(for='longitude') Longitude:
-                            input#longitude-box.form-control(type='text', placeholder='0.0' name='longitude' value='')
-                        div.form-group
-                            label(for='latitude') Latitude:
-                            input#latitude-box.form-control(type='text', placeholder='0.0' name='latitude' value='')
-                        div.form-group
-                            label(for='accurracy') Accuracy:
-                            input#accuracy-box.form-control(type='text', placeholder='0.0' name='accuracy' value='')
-        div.left-lower-row
-            div#inbox-box
-                div.inbox-element
-                    div.time-row
-                        span Timestamp
-                    div.data-row
-                        span Data
-                    div.lat-row
-                        span Latitude
-                    div.lon-row
-                        span Longitude
-    script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCjvUF_VrecmLOG4q0oczQKnyv_a2L6NqM&callback=initMap')
-    div.right-bar
-        div.map-box
-            div#map
+                    div.coord-boxes
+                        form#coord-form(method='POST' action='/')
+                            div.form-group Last known coordinates:
+                                br
+                                label(for='longitude') Longitude:
+                                input#longitude-box.form-control(type='text', placeholder='0.0' name='longitude' value='')
+                            div.form-group
+                                label(for='latitude') Latitude:
+                                input#latitude-box.form-control(type='text', placeholder='0.0' name='latitude' value='')
+                            div.form-group
+                                label(for='accurracy') Accuracy:
+                                input#accuracy-box.form-control(type='text', placeholder='0.0' name='accuracy' value='')
+            div.left-lower-row
+                div#inbox-box
+                    div.inbox-element
+                        div.time-row
+                            span Timestamp
+                        div.data-row
+                            span Data
+                        div.lat-row
+                            span Latitude
+                        div.lon-row
+                            span Longitude
+        script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCjvUF_VrecmLOG4q0oczQKnyv_a2L6NqM&callback=initMap')
+        div.right-bar
+            div.map-box
+                div#map
