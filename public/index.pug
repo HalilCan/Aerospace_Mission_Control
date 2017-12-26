@@ -18,13 +18,13 @@ body
             form#burst-form Balloon Burst Calculation
                 div.form-group
                     label Gas Type
-                    input#gasType-box
+                    input#gasType-box.form-control(type='text', placeholder='Gas Type' name='gas-type' value='')
                     label Launch Volume
-                    input#launchVolume-box
+                    input#launchVolume-box.form-control(type='text', placeholder='Volume(m^3)' name='volume-input' value='')
                     label Balloon Weight
-                    input#balloonWeight-box
+                    input#balloonWeight-box.form-control(type='text', placeholder='Balloon Weight(g)' name='balloon-weight-input' value='')
                     label Payload Weight
-                    input#payloadWeight-box
+                    input#payloadWeight-box.form-control(type='text', placeholder='Payload Weight' name='payload-weight-input' value='')
     div.tab-content#mission-tab
         div#download-csv-div
             button#download-csv-button(type='button' onclick='downloadCsv()') Download Flight Data
