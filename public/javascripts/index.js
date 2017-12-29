@@ -398,6 +398,24 @@ function inboxToCsv() {
     }
     return csv;
 }
+
+function openTab(event, tabName) {
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += "active";
+}
+
 /* $('message-form').submit(function(event) {
   //We don't want the form to redirect the client
   event.preventDefault();
