@@ -42,6 +42,10 @@ socket.on('new_message', function(obj){
     accuracyBox.value = recentAccuracy;
 });
 
+socket.on('flight_upload', function(obj){
+    
+});
+
 socket.on('new_coords', function(obj){
   var longitudeBox = document.getElementById("longitude-box");
   var latitudeBox = document.getElementById("latitude-box");
@@ -415,6 +419,40 @@ function openTab(event, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += "active";
 }
+
+function calculateBurst (gasType, launchVolume, balloonWeight, payloadWeight) {
+    var totexDataDict = {'200':[3.00,0.25], '300':[3.78,0.25], '350':[4.12,0.25], '450':[4.72,0.25],
+        '500':[4.99,0.25], '600':[6.02,0.3], '700':[6.53,0.3], '800':[7.00,0.3], '1000':[7.86,0.3],
+        '1200':[8.63,0.25], '1500':[9.44,0.25], '2000':[10.54,0.25], '3000':[13.00,0.25]};
+
+    const heliumDensity = 0.1786; //at 0C, 101kPa
+    const hydrogenDensity = 0.0899; //at 0C, 101kPa
+    const airDensity = 1.205; //at 0C, 101kPa
+    var gasDensity = 0.0;
+    if (gasType === 'helium'){gasDensity = heliumDensity;} else if(gasType === 'hydrogen'){gasDensity = hydrogenDensity};
+    const airDensityModel = 7283.3;
+
+    var launchDiameter = 2*Math.pow(((3*launchVolume)/(4*Math.PI)), 1/3);
+    var area = Math.PI*Math.pow(launchDiameter/2, 2);
+
+    const balloonWeightString = balloonWeight.toString();
+    var burstDiameter = totexDataDict[balloonWeightString][0];
+    var burstVolume = (4/3)*Math.PI*Math.pow(burstDiameter/2,3);
+    var burstVolumeRatio = burstVolume/launchVolume;
+    var burstHeightMeters = -(airDensityModel*Math.log(1/burstVolumeRatio));
+
+    var grossLift = launchVolume*(airDensity-gasDensity);
+    var freeLift = grossLift-((balloonWeight+payloadWeight)/1000);
+    var balloonCd =totexDataDict[balloonWeightString][1];
+    var ascentRateMeters = Math.sqrt(freeLift/(0.5*balloonCd*airDensity*area));
+    var ascentRateFeet = (ascentRateMeters*3.28)*60; //also convert from m/sec to ft/min
+    var neutralLift = payloadWeight/1000+freeLift;
+    var burstHeightFeet = burstHeightMeters * 3.28;
+    var timeToBurst = burstHeightFeet/ascentRateFeet;
+
+    return [burstHeightFeet, ascentRateFeet, neutralLift, timeToBurst];
+}
+
 
 /* $('message-form').submit(function(event) {
   //We don't want the form to redirect the client
