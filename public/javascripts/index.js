@@ -55,7 +55,7 @@ socket.on('new_message', function (obj) {
 });
 
 socket.on('flight_upload', function (obj) {
-
+  //TODO: flight data upload has not been implemented here in the index.js or in the index.pug file. It currently leads to /upload, which it shouldn't
 });
 
 socket.on('new_coords', function (obj) {
