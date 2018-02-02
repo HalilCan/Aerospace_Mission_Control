@@ -18,9 +18,9 @@ var express = require('express');
 var app = express();
 
 //Port config for Heroku, 5000 for Webstorm
-app.set('port', ( process.env.PORT || 8000 ));
+app.set('port', ( process.env.PORT || 3030 ));
 
-var server = app.listen(app.get('port') || 8000);
+var server = app.listen(app.get('port') || 3030);
 var io = require('socket.io')(server);
 
 app.use(express.static(__dirname + '/public'));

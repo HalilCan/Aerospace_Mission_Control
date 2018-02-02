@@ -430,7 +430,7 @@ function openTab(event, tabName) {
   }
   
   document.getElementById(tabName).style.display = 'block';
-  evt.currentTarget.className += 'active';
+  event.currentTarget.className += 'active';
 }
 
 function calculateBurst(gasType, launchVolume, balloonWeight, payloadWeight) {
