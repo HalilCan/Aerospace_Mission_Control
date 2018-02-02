@@ -78,7 +78,7 @@ a {
     display: inline-flex;
     flex-direction: column;
     width: 250px;
-    margin-top: 7px;
+    margin-top: -3px;
 }
 
 .view-box {
@@ -91,8 +91,8 @@ a {
     text-align: right;
     position: relative;
     border-right: 1px solid whitesmoke;
-    display: flex;
-    width: 500px;
+    display: inline-flex;
+    width: 450px;
     height: auto;
     padding-right: 30px;
     background-color: transparent;
@@ -194,7 +194,7 @@ a {
     display: inline-block;
 
     top: 88vh;
-    left: 75vw;
+    left: 78vw;
     width: auto;
     z-index: 99;
 }

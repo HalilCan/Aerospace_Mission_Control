@@ -58,7 +58,8 @@ body
 
                     div.coord-boxes
                         form#coord-form(method='POST' action='/')
-                            div.form-group Last known coordinates:
+                            strong Last known coordinates:
+                            div.form-group
                                 br
                                 label(for='longitude') Longitude:
                                 input#longitude-box.form-control(type='text', placeholder='0.0' name='longitude' value='')
