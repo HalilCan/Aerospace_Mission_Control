@@ -1,216 +1,227 @@
 body {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-right: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #242424;
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height:90vh;
-  width: 93vw;
-  display: inline-flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 0px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #242424;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 93vw;
+    display: inline-flex;
 }
 
 input {
-  border: none;
-  border-bottom: 1px solid whitesmoke;
-  background-color: #262626;
-  color: white;
+    border: none;
+    border-bottom: 1px solid whitesmoke;
+    background-color: #262626;
+    color: white;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .header-message {
-  position: absolute;
-  display: inline-block;
-  padding: 0;
-  top: 10vh;
-  right: 5vw;
+    position: absolute;
+    display: inline-block;
+    padding: 0;
+    top: 10vh;
+    right: 5vw;
 }
 
 .coord-boxes {
-  display: inline-flex;
-  position: relative;
-  flex: 1;
-  width: auto;
-  text-align: right;
+    display: inline-flex;
+    position: relative;
+    flex: 1;
+    width: auto;
+    text-align: right;
 }
 
 .message-boxes {
-  display: inline-flex;
-  flex: 2;
-  position: relative;
-  width: 200px;
-  text-align: right;
+    display: inline-flex;
+    flex: 2;
+    position: relative;
+    width: 200px;
+    text-align: right;
 }
 
 #inbox-box {
-  display: inline-block;
-  position: relative;
-  height: inherit;
-  width: 240px;
-  flex: 5;
-  overflow-y: scroll;
-  text-align: left;
-  margin-left: 0px;
+    display: inline-block;
+    position: relative;
+    height: inherit;
+    width: 240px;
+    flex: 5;
+    overflow-y: scroll;
+    text-align: left;
+    margin-left: 0px;
 }
 
 #message-form {
-  display: inline-flex;
-  flex-direction: column;
-  width: auto;
+    display: inline-flex;
+    flex-direction: column;
+    width: auto;
 }
 
 #message-form button {
-  background-color: transparent;
-  color: whitesmoke;
-  margin-top: 10px;
-  margin-left: 90px;
-  width: 120px;
+    background-color: transparent;
+    color: whitesmoke;
+    margin-top: 10px;
+    margin-left: 90px;
+    width: 120px;
 }
 
 #coord-form {
-  display: inline-flex;
-  flex-direction: column;
-  width: 250px;
-  margin-top: 7px;
+    display: inline-flex;
+    flex-direction: column;
+    width: 250px;
+    margin-top: 7px;
 }
 
 .view-box {
-  height: 100vh;
-  display: inline-flex;
+    height: 100vh;
+    display: inline-flex;
 }
 
 #message-bar {
-  flex-direction: row;
-  text-align: right;
-  position: relative;
-  border-right: 1px solid whitesmoke;
-  display: flex;
-  width: 500px;
-  height: auto;
-  padding-right: 30px;
-  background-color: transparent;
+    flex-direction: row;
+    text-align: right;
+    position: relative;
+    border-right: 1px solid whitesmoke;
+    display: flex;
+    width: 500px;
+    height: auto;
+    padding-right: 30px;
+    background-color: transparent;
 }
 
 .left-upper-row {
-  display:inline-flex;
-  flex-direction: row;
-  flex: 2;
-  position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    flex: 2;
+    position: relative;
 }
 
 .left-lower-row {
-  height: 673px;
-  display: inline-flex;
-  flex: 10;
+    height: 673px;
+    display: inline-flex;
+    flex: 10;
 }
 
 .inbox-element {
-  position: relative;
-  height: 40px;
-  margin-top: 1px;
-  width: auto;
-  border-top: 1px solid whitesmoke;
-  border-bottom: 1px solid whitesmoke;
-  display:inline-flex;
-  text-align: justify;
+    position: relative;
+    height: 40px;
+    margin-top: 1px;
+    width: auto;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    display: inline-flex;
+    text-align: justify;
 }
 
 .time-row {
-  width: 80px;
-  border-left: 1px solid whitesmoke;
-  padding-left: 3px;
-  border-right: 1px solid whitesmoke;
-  padding-right: 3px;
-  margin-right: 3px;
+    width: 80px;
+    border-left: 1px solid whitesmoke;
+    padding-left: 3px;
+    border-right: 1px solid whitesmoke;
+    padding-right: 3px;
+    margin-right: 3px;
 }
 
 .data-row {
-  width: 220px;
-  border-right: 1px solid whitesmoke;
-  padding-right: 3px;
-  margin-right: 3px;
-  word-wrap: break-word;
+    width: 220px;
+    border-right: 1px solid whitesmoke;
+    padding-right: 3px;
+    margin-right: 3px;
+    word-wrap: break-word;
 }
 
 .lat-row {
-  width: 68px;
-  border-right: 1px solid whitesmoke;
-  padding-right: 3px;
-  margin-right: 3px;
+    width: 68px;
+    border-right: 1px solid whitesmoke;
+    padding-right: 3px;
+    margin-right: 3px;
 }
 
 .lon-row {
-  width: 68px;
-  border-right: 1px solid whitesmoke;
-  padding-right: 3px;
+    width: 68px;
+    border-right: 1px solid whitesmoke;
+    padding-right: 3px;
+}
+
+#mission-tab {
+    display: inline-flex;
+    flex-direction: row;
 }
 
 .left-bar {
-  position: relative;
-  width: 500px;
-  height: auto;
-  display:inline-flex;
-  flex-direction: column;
+    position: relative;
+    flex: 2;
+    width: 500px;
+    height: auto;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.right-bar {
+    z-index: -10;
+    flex: 10;
 }
 
 .map-box {
-  position: relative;
-  display: inline-flex;
-  width: 70vw;
-  overflow: hidden;
-  height: auto;
+    position: relative;
+    display: inline-flex;
+    width: 70vw;
+    overflow: hidden;
+    height: auto;
 }
 
 #map {
-  position: relative;
-  display: inline-flex;
-  width: 100%;
-  height: 800px;
-  overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
 }
 
 #download-csv-div {
-  position: fixed;
-  display: inline-block;
+    position: fixed;
+    display: inline-block;
 
-  top: 90vh;
-  left: 80vw;
-  width: auto;
-  z-index: 99;
+    top: 90vh;
+    left: 80vw;
+    width: auto;
+    z-index: 99;
 }
 
 #download-csv-button {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 
-  width: 160px;
-  z-index: 99;
-  height: 20px;
+    width: 160px;
+    z-index: 99;
+    height: 20px;
 
-  background-color: #626262;
-  color: whitesmoke;
-  border: 1px solid darkgray;
-  border-radius: 2px;
+    background-color: #626262;
+    color: whitesmoke;
+    border: 1px solid darkgray;
+    border-radius: 2px;
 }
 
 #upload-csv-form {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 
-  background-color: #757576;
-  color: whitesmoke;
-  border: 1px solid darkgray;
-  border-radius: 2px;
+    background-color: #757576;
+    color: whitesmoke;
+    border: 1px solid darkgray;
+    border-radius: 2px;
 }
 
 .tab {
-    overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
