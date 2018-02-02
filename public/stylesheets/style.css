@@ -170,13 +170,13 @@ a {
 }
 
 .right-bar {
-    flex: 8;
+    flex: 10;
 }
 
 .map-box {
     position: relative;
     display: inline-flex;
-    width: 70vw;
+    width: 100%;
     overflow: hidden;
     height: auto;
 }
