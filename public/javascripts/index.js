@@ -14,6 +14,12 @@ var recentAccuracy = 0.0;
 
 var inboxArray = [];
 
+window.addEventListener('load',
+  function() {
+    initMap(inboxArray);
+  }
+);
+
 socket.on('new_message', function (obj) {
   var longitudeBox = document.getElementById('longitude-box');
   var latitudeBox = document.getElementById('latitude-box');
