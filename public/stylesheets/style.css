@@ -153,8 +153,11 @@ a {
 }
 
 #mission-tab {
-    display: inline-flex;
     flex-direction: row;
+}
+
+#simulation-tab {
+    flex-direction: column;
 }
 
 .left-bar {
