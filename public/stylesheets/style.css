@@ -170,8 +170,7 @@ a {
 }
 
 .right-bar {
-    z-index: -10;
-    flex: 10;
+    flex: 8;
 }
 
 .map-box {

@@ -454,8 +454,7 @@ function calculateBurst(gasType, launchVolume, balloonWeight, payloadWeight) {
   const hydrogenDensity = 0.0899; //at 0C, 101kPa
   const airDensity = 1.205; //at 0C, 101kPa
   var gasDensity = 0.0;
-  if (gasType === 'helium') {gasDensity = heliumDensity;} else if (gasType === 'hydrogen') {gasDensity = hydrogenDensity}
-  ;
+  if (gasType === 'helium') {gasDensity = heliumDensity;} else if (gasType === 'hydrogen') {gasDensity = hydrogenDensity};
   const airDensityModel = 7283.3;
   
   var launchDiameter = 2 * Math.pow(((3 * launchVolume) / (4 * Math.PI)), 1 / 3);
