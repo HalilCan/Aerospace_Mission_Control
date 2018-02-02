@@ -12,7 +12,7 @@ var recentLatitude = 0.0;
 var recentLongitude = 0.0;
 var recentAccuracy = 0.0;
 
-var inboxArray = [];
+window.inboxArray = [];
 
 socket.on('new_message', function (obj) {
   var longitudeBox = document.getElementById('longitude-box');
@@ -32,7 +32,7 @@ socket.on('new_message', function (obj) {
   var inboxElement = '<div class = \'inbox-element\'><div class = \'time-row\'>' + timestamp + '</div> <div class = \'data-row\'>' + data + '</div><div class = \'lat-row\'>' + recentLatitude + '</div><div class = \'lon-row\'>' + recentLongitude + '</div> </div>';
   inBox.innerHTML += inboxElement;
   
-  inboxArray.push({
+  window.inboxArray.push({
     'latitude': parseFloat(recentLatitude),
     'longitude': parseFloat(recentLongitude),
     'accuracy': parseInt(recentAccuracy),
@@ -40,8 +40,8 @@ socket.on('new_message', function (obj) {
     'data': data
   });
   console.log('most recent latitude: ' + parseFloat(recentLatitude));
-  console.log('final array latitude: ' + parseFloat(inboxArray[inboxArray.length - 1].latitude));
-  initMap(inboxArray);
+  console.log('final array latitude: ' + parseFloat(window.inboxArray[window.inboxArray.length - 1].latitude));
+  initMap();
   
   longitudeBox.value = recentLongitude;
   latitudeBox.value = recentLatitude;
@@ -139,7 +139,8 @@ function sendToServer() {
  initMap([{lat: 37.101, lng: -122.214},{lat: 47.101, lng: -125.214}]);
  */
 
-function initMap(inboxArray) {
+function initMap() {
+  var inboxArray = window.inboxArray;
   var coordArray = [];
   var accuracyArray = [];
   for (var i = 0; i < inboxArray.length; i ++) {

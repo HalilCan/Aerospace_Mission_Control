@@ -203,7 +203,6 @@ app.post('/client_message', function (req, res) {
   res.end();
 });
 
-// TODO: setup the rocblock server router to the /incoming url
 app.post('/incoming', function (req, res) {
   console.log('incoming detected!');
   
