@@ -380,7 +380,7 @@ function initMap(inboxArray) {
 function downloadCsv() {
   var csv = inboxToCsv();
   var dateText = getCurrentDate();
-  var filename = 'flightData-' + dateText;
+  var filename = 'flightData-' + dateText + '.txt';
   var element = document.createElement('a');
   
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csv));

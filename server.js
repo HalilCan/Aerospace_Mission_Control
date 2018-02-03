@@ -267,7 +267,18 @@ app.get('/', function (req, res) {
   res.render('index', {date: (new Date()).toDateString()});
 });
 
+//TODO: implement db first, that will help get around the download/upload
+//formidable upload handler
+/*
+var upload = require('formidable-upload');
+var uploader = upload()
+  .accept(text/plain)
+  .to(['public', 'flightpaths']);
+
+app.post('/upload', uploader.middleware('userfile'));
+*/
 //formidable file upload for flight data analysis
+/*
 var dataPath = '';
 app.post('/upload', function (req, res) {
   var form = new formidable.IncomingForm();
@@ -275,12 +286,13 @@ app.post('/upload', function (req, res) {
   form.parse(req, function (err, fields, files) {
     res.writeHead(200, {'content-type': 'text/plain'});
     res.write('received upload:\n\n');
-    dataPath = file.path;
+    dataPath = files.path;
     res.end(util.inspect({fields: fields, files: files}));
   });
   form.on('file', function (name, file) {
     console.log('Uploaded' + file.name);
   });
 });
+*/
 
 //app.listen(app.get('port'));

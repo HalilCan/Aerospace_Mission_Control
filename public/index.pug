@@ -29,7 +29,7 @@ body
         div#download-csv-div
             button#download-csv-button(type='button' onclick='downloadCsv()') Download Flight Data
             br
-            form#upload-csv-form(action='/upload' enctype='multipart/form-data' method='post') Upload Data for Analysis
+            form#upload-csv-form(action='/upload' target='_blank' enctype='multipart/form-data' method='post') Upload Data for Analysis
                 br
                 input(type='file' name='upload' multiple='multiple')
                 br
