@@ -43,16 +43,16 @@ body
                     div.message-boxes
                         form#message-form(method='POST' action='/send_message')
                             div.form-group
-                                label(for='username') Username:
+                                label(for='username')
                                 input#username-box.form-control(type='text', placeholder='Username' name='username' value='')
                             div.form-group
-                                label(for='password') Password:
+                                label(for='password')
                                 input#password-box.form-control(type='text', placeholder='Password' name='password' value='')
                             div.form-group
-                                label(for='imei') IMEI:
+                                label(for='imei')
                                 input#imei-box.form-control(type='text', placeholder='IMEI' name='imei' value='')
                             div.form-group
-                                label(for='message') Message:
+                                label(for='message')
                                 input#msg-box.form-control(type='text', placeholder='Message' name='msg' value='')
                             button#send-message-button.btn.btn-primary(type='button' onclick='sendToServer()') Submit
 
