@@ -282,8 +282,14 @@ var User = mongoose.model("User", {
   lastName: String
 });
 
-var FlightData = mongoose.model("FlightData", {
-  //TODO: Fill flight data
+var FlightMessage = mongoose.model("FlightMessage", {
+  imei: String,
+  momsn: String,
+  transmitTime: String,
+  iridiumLatitude: String,
+  iridiumLongitude: String,
+  iridiumCep: String, //accuracy
+  data: String,
 });
 
 socket.on('dblogin', dbkey => {
@@ -293,7 +299,10 @@ socket.on('dblogin', dbkey => {
 });
 
 function saveFlight() {
-  //TODO: Save from inbox
+  for (var i = 0; i < inbox.length; i++) {
+    var flightMessage = new FlightMessage(inbox[i].getObject());
+    flightMessage.save();
+  }
 }
 
 
