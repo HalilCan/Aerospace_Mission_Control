@@ -35,6 +35,8 @@ body
                     input#payloadWeight-box.form-control(type='text', placeholder='Payload Weight' name='payload-weight-input' value='')
     div.tab-content#mission-tab
         div#download-csv-div
+            button#save-to-cloud-button(type='button' onclick='saveFlight()') Save Data to Cloud
+            br
             button#download-csv-button(type='button' onclick='downloadCsv()') Download Flight Data
             br
             form#upload-csv-form(action='/upload' target='_blank' enctype='multipart/form-data' method='post') Upload Data for Analysis

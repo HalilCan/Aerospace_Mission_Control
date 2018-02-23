@@ -494,6 +494,10 @@ function dbLogin() {
   //TODO: io.sockets or socket
 }
 
+function saveFlight() {
+  socket.emit('saveFlight');
+}
+
 /**
  * Models
  */

@@ -298,6 +298,10 @@ socket.on('dblogin', dbkey => {
   });
 });
 
+socket.on('saveFlight', arck => {
+  saveFlight();
+});
+
 function saveFlight() {
   for (var i = 0; i < inbox.length; i++) {
     var flightMessage = new FlightMessage(inbox[i].getObject());
