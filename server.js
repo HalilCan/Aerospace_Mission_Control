@@ -104,6 +104,16 @@ var latitude = 0.0;
 var longitude = 0.0;
 var gpsAccuracy = 0.0;
 
+/**
+ *
+ * @param imei
+ * @param momsn
+ * @param transmitTime
+ * @param irLat
+ * @param irLon
+ * @param irCep
+ * @param data
+ */
 var logData = function (imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   // Collect all the important information from the message;
   var imei = imei;
@@ -134,6 +144,10 @@ var logData = function (imei, momsn, transmitTime, irLat, irLon, irCep, data) {
   console.log('\n' + imei + '\n' + data);
   console.log('data: ' + hexify.decode(data));
 };
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FLIGHT SIMULATION
 
 /* inputs:
  gasType: Helium or Hydrogen, launchVolume in cubic meters, balloonWeight and payloadWeight in grams
@@ -185,6 +199,8 @@ function calculateBurst(gasType, launchVolume, balloonWeight, payloadWeight) {
   
   return [burstHeightFeet, ascentRateFeet, neutralLift, timeToBurst];
 }
+
+///////////////////////////////////////////////////////////////////////////////
 
 //This handles the post request made by the client
 //TODO: return the global requests list/chain/linkedlist object?
