@@ -203,6 +203,8 @@ app.post('/client_message', function (req, res) {
   res.end();
 });
 
+
+
 app.post('/incoming', function (req, res) {
   console.log('incoming detected!');
   
@@ -252,6 +254,34 @@ var send = function (imei, username, password, data) {
   );
 };
 
+
+////////////////////////////////////////////////
+// DATABASE
+
+/**
+ * Models
+ */
+var User = mongoose.model("User", {
+  firstName: String,
+  lastName: String
+});
+
+var FlightData = mongoose.model("FlightData", {
+  //TODO: Fill flight data
+});
+
+socket.on('dblogin', dbkey => {
+  mongoose.connect(dbkey, { useMongoClient: true }, () => {
+    console.log("DB is connected");
+  });
+});
+
+function saveFlight() {
+  //TODO: Save from inbox
+}
+
+
+/////////////////////////////////////////////////
 
 //This is how we specify the path to the template files in the folder 'templates':
 app.set('views', path.join(__dirname, 'public'));

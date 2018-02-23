@@ -484,6 +484,22 @@ function calculateBurst(gasType, launchVolume, balloonWeight, payloadWeight) {
   return [burstHeightFeet, ascentRateFeet, neutralLift, timeToBurst];
 }
 
+function datapointToJSON() {
+
+}
+
+function dbLogin() {
+  var dbKey = document.getElementById('db-key-box').innerHTML;
+  socket.emit('dblogin', dbkey);
+  //TODO: io.sockets or socket
+}
+
+/**
+ * Models
+ */
+
+
+
 
 /* $('message-form').submit(function(event) {
  //We don't want the form to redirect the client

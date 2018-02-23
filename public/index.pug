@@ -13,6 +13,14 @@ body
     div.tab
         button.tablinks.active(onclick = "openTab(event,'sim-tab')") Simulation
         button.tablinks.active(onclick = "openTab(event,'mission-tab')") Launch
+        button.tablinks.active(onclick = "openTab(event,'login-tab')") Cloud Access
+    div.tab-content#login-tab
+        div#login-div
+            form#login-form Type in credentials for cloud access
+                div.form-group
+                    label Key:
+                    input#db-key-box.form-control(type='text', placeholder='' name='db-key-input' value='')
+                    button#cloud-login-button(type='button' onclick='dbLogin()') Sign In
     div.tab-content#sim-tab
         div#burst-calc
             form#burst-form Balloon Burst Calculation
