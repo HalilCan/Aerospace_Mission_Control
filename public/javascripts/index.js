@@ -491,12 +491,12 @@ function datapointToJSON() {
 function dbLogin() {
   var dbKey = document.getElementById('db-key-box').innerHTML;
   console.log('dblogin clientside');
-  sockets.emit('dblogin', dbkey);
+  socket.emit('dblogin', dbkey);
   //TODO: io.sockets or socket
 }
 
 function saveFlight() {
-  sockets.emit('saveFlight');
+  socket.emit('saveFlight');
 }
 
 /**
