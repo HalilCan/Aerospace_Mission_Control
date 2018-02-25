@@ -302,11 +302,14 @@ io.sockets.on('dblogin', dbkey => {
 });
 
 io.sockets.on('saveFlight', arck => {
+  console.log('saveFlight serverside caught');
   saveFlight();
 });
 
 function saveFlight() {
+  console.log('saveFlight serverside started');
   for (var i = 0; i < inbox.length; i++) {
+    console.log('saveflight iteration ' + i);
     var flightMessage = new FlightMessage(inbox[i].getObject());
     flightMessage.save();
   }
