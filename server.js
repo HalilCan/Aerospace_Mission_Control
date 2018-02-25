@@ -273,6 +273,9 @@ var send = function (imei, username, password, data) {
 
 ////////////////////////////////////////////////
 // DATABASE
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
+
 
 /**
  * Models
@@ -309,6 +312,7 @@ function saveFlight() {
   }
 }
 
+//TODO: Add functionality such that the X closest airports to a location are listed
 
 /////////////////////////////////////////////////
 
