@@ -301,7 +301,7 @@ io.sockets.on('dblogin', dbKey => {
   });
 });
 
-io.sockets.on('saveFlight', arck => {
+io.sockets.on('saveFlight', flightCode => {
   console.log('saveFlight serverside caught');
   saveFlight();
 });

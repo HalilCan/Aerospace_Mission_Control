@@ -496,7 +496,8 @@ function dbLogin() {
 }
 
 function saveFlight() {
-  socket.emit('saveFlight');
+  console.log('saveFlight clientside');
+  socket.emit('saveFlight', 0);
 }
 
 /**
