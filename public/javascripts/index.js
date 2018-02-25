@@ -491,7 +491,7 @@ function datapointToJSON() {
 function dbLogin() {
   var dbKey = document.getElementById('db-key-box').innerHTML;
   console.log('dblogin clientside');
-  socket.emit('dblogin', dbkey);
+  socket.emit('dblogin', dbKey);
   //TODO: io.sockets or socket
 }
 
