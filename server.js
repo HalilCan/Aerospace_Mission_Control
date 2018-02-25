@@ -295,13 +295,13 @@ var FlightMessage = mongoose.model("FlightMessage", {
   data: String,
 });
 
-socket.on('dblogin', dbkey => {
+io.sockets.on('dblogin', dbkey => {
   mongoose.connect(dbkey, { useMongoClient: true }, () => {
     console.log("DB is connected");
   });
 });
 
-socket.on('saveFlight', arck => {
+io.sockets.on('saveFlight', arck => {
   saveFlight();
 });
 
