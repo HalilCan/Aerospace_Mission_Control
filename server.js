@@ -296,6 +296,7 @@ var FlightMessage = mongoose.model("FlightMessage", {
 });
 
 io.sockets.on('dblogin', dbKey => {
+  console.log(dbKey);
   mongoose.connect(dbKey, { useMongoClient: true }, () => {
     console.log("DB is connected");
   });
