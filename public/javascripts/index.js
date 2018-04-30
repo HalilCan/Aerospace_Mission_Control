@@ -358,8 +358,8 @@ function initMap(inboxArray) {
       strokeColor: '#fafff8',
       strokeOpacity: 0.7,
       strokeWeight: 2,
-      fillColor: '#ffd6e8',
-      fillOpacity: 0.35,
+      fillColor: '#d0f7ff',
+      fillOpacity: 0.001,
       map: map,
       center: {lat: coordArray[i].lat, lng: coordArray[i].lng},
       radius: 1000 * accuracyArray[i].acc
@@ -370,7 +370,7 @@ function initMap(inboxArray) {
   var flightPath = new google.maps.Polyline({
     path: coordArray,
     geodesic: true,
-    strokeColor: '#fef8ff',
+    strokeColor: '#d0eeff',
     strokeOpacity: 1.0,
     strokeWeight: 2
   });
