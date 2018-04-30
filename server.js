@@ -273,6 +273,9 @@ var send = function (imei, username, password, data) {
 
 ////////////////////////////////////////////////
 // DATABASE
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
+
 
 /**
  * Models
@@ -292,23 +295,32 @@ var FlightMessage = mongoose.model("FlightMessage", {
   data: String,
 });
 
-socket.on('dblogin', dbkey => {
-  mongoose.connect(dbkey, { useMongoClient: true }, () => {
-    console.log("DB is connected");
+io.on('connection', (socket) => {
+  socket.on('dblogin', dbKey => {
+    console.log(dbKey);
+    mongoose.connect(dbKey, { useMongoClient: true }, () => {
+      console.log("DB is connected");
+    });
+  });
+  
+  socket.on('saveFlight', flightCode => {
+    console.log('saveFlight serverside caught');
+    saveFlight();
   });
 });
 
-socket.on('saveFlight', arck => {
-  saveFlight();
-});
+
 
 function saveFlight() {
+  console.log('saveFlight serverside started');
   for (var i = 0; i < inbox.length; i++) {
+    console.log('saveflight iteration ' + i);
     var flightMessage = new FlightMessage(inbox[i].getObject());
     flightMessage.save();
   }
 }
 
+//TODO: Add functionality such that the X closest airports to a location are listed
 
 /////////////////////////////////////////////////
 
